@@ -1,8 +1,10 @@
-package com.example.agrophone;
+package com.example.agrophone.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.agrophone.R;
 
 public class MainActivity extends AppCompatActivity {
 
