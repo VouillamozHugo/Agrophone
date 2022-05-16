@@ -28,11 +28,13 @@ public class MainActivity extends AppCompatActivity {
         passwordView = findViewById(R.id.password);
         loginbtn = findViewById(R.id.loginbtn);
         loginbtn.setOnClickListener(view -> attemptLogin());
+        registerbtn = findViewById(R.id.registerbtn);
+        registerbtn.setOnClickListener(view -> register());
 
 
     }
 
-    private void attemptLogin(){
+    private void attemptLogin() {
         email_loginView.setError(null);
         passwordView.setError(null);
 
@@ -63,11 +65,10 @@ public class MainActivity extends AppCompatActivity {
         } else {
             //partie base de donnée pour nous connecter
         }
-
-        public void register(View view) {
+    }
+        public void register() {
             Intent intent = new Intent(this, AnimationListActivity.class);
             startActivity(intent);
             finish();
         }
-    }
 }
