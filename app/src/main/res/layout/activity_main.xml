@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#d9d9d9"
     tools:context=".UI.MainActivity">
 
     <TextView
@@ -31,7 +32,6 @@
         android:layout_marginTop="60dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-
 
 
         android:drawablePadding="10dp"
@@ -71,7 +71,7 @@
         android:layout_marginBottom="10dp"
         android:backgroundTint="#50dddddd"
         android:text="Login"
-        android:textColor="@color/black"
+        android:textColor="#b88a50"
         android:textStyle="bold" />
 
     <com.google.android.material.button.MaterialButton
@@ -86,7 +86,7 @@
         android:layout_marginBottom="10dp"
         android:backgroundTint="#50dddddd"
         android:text="Register"
-        android:textColor="@color/black"
+        android:textColor="#b88a50"
         android:textStyle="bold" />
 
 
