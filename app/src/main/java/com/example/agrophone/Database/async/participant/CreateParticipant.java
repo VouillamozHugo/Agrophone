@@ -1,28 +1,28 @@
-package com.example.agrophone.Database.async.animation;
+package com.example.agrophone.Database.async.participant;
 
 import android.app.Application;
 import android.os.AsyncTask;
 
 import com.example.agrophone.BaseAPP;
-import com.example.agrophone.Database.Entity.Animation;
+import com.example.agrophone.Database.Entity.Participant;
 import com.example.agrophone.Database.Util.OnAsyncEventListener;
 
-public class CreateAnimation extends AsyncTask<Animation, Void, Void> {
+public class CreateParticipant extends AsyncTask<Participant, Void, Void> {
     private Application application;
     private OnAsyncEventListener callback;
     private Exception exception;
 
-    public CreateAnimation(Application application, OnAsyncEventListener callback) {
+    public CreateParticipant(Application application, OnAsyncEventListener callback) {
         this.application = application;
         this.callback = callback;
     }
 
     @Override
-    protected Void doInBackground(Animation... params) {
+    protected Void doInBackground(Participant... params) {
         try {
-            for (Animation animation : params)
-                ((BaseAPP) application).getDatabase().animationDAO()
-                        .insert(animation);
+            for (Participant participant : params)
+                ((BaseAPP) application).getDatabase().participantDAO()
+                        .insert(participant);
         } catch (Exception e) {
             exception = e;
         }
@@ -39,5 +39,4 @@ public class CreateAnimation extends AsyncTask<Animation, Void, Void> {
             }
         }
     }
-
 }
