@@ -12,6 +12,7 @@ import android.widget.EditText;
 
 import com.example.agrophone.BaseAPP;
 import com.example.agrophone.Database.DatabaseInitializer;
+import com.example.agrophone.Database.Repository.AnimationRepo;
 import com.example.agrophone.Database.Repository.ParticipantRepo;
 import com.example.agrophone.R;
 
@@ -23,13 +24,24 @@ public class MainActivity extends AppCompatActivity {
     private Button registerbtn;
 
     private ParticipantRepo participantRepo;
+    private AnimationRepo animationRepo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-      // DatabaseInitializer.populateDatabase(((BaseAPP) getApplicationContext()).getDatabase());
+        participantRepo = ((BaseAPP) getApplication()).getParticipantRepo();
+        animationRepo = ((BaseAPP) getApplication()).getanimationRepo();
+
+        animationRepo.getAllAnimations(getApplication()).observe(this, animations -> {
+            if(animations.isEmpty()){
+                DatabaseInitializer.populateDatabase(((BaseAPP) getApplicationContext()).getDatabase());
+            }else{
+                return;
+            }
+        });
+
 
         //values from view
         email_loginView = findViewById(R.id.email_login);
