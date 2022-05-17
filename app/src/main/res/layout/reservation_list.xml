@@ -40,17 +40,16 @@
          android:src="@mipmap/add" />-->
 
     <ImageButton
-        android:id="@+id/date_button"
-        android:layout_width="50dp"
-        android:layout_height="60dp"
+        android:id="@+id/date_assignment"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_alignParentEnd="true"
         android:layout_marginLeft="300dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="23dp"
-        android:backgroundTint="#FF4962E8"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="40dp"
         android:contentDescription="date_button"
         android:padding="5dp"
-        android:src="@mipmap/acc_calendar" />
+        android:src="@mipmap/ic_calendar" />
 
     <Button
         android:id="@+id/show_all"
@@ -59,45 +58,47 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="120dp"
         android:layout_marginBottom="150dp"
+        android:backgroundTint="#B88A50"
         android:text="Show all"
         android:textSize="13dp" />
 
     <TextView
         android:id="@+id/date_selection"
-        android:layout_width="171dp"
-        android:layout_height="39dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/icon"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="71dp"
+        android:layout_marginTop="61dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="5dp"
-
-        android:textSize="15dp"
+        android:hint="Date selectionnée"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="18dp"
         android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/type"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="200dp" />
+
+    <Spinner
+        android:id="@+id/Région"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="20dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reservation_list"
         android:layout_width="368dp"
         android:layout_height="715dp"
         android:layout_below="@id/date_selection"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
         android:textSize="10dp" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_assingment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="290dp"
-        android:layout_marginTop="500dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="@dimen/fab_margin"
-        app:backgroundTint="#FF4962E8"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:maxImageSize="35dp"
-        app:srcCompat="@drawable/ic_action_add" />
-
 
 
 </RelativeLayout>

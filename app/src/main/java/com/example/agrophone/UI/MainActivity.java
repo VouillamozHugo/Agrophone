@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.agrophone.BaseAPP;
+import com.example.agrophone.Database.Repository.ParticipantRepo;
 import com.example.agrophone.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,11 +20,14 @@ public class MainActivity extends AppCompatActivity {
     private Button loginbtn;
     private Button registerbtn;
 
+    private ParticipantRepo participantRepo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        participantRepo = ((BaseAPP) getApplication()).getParticipantRepo();
         //values from view
         email_loginView = findViewById(R.id.email_login);
         passwordView = findViewById(R.id.password);
@@ -30,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         loginbtn.setOnClickListener(view -> attemptLogin());
         registerbtn = findViewById(R.id.registerbtn);
         registerbtn.setOnClickListener(view -> register());
+
+
 
 
     }
@@ -63,7 +70,16 @@ public class MainActivity extends AppCompatActivity {
             // form field with an error.
             focusView.requestFocus();
         } else {
-            //partie base de donnée pour nous connecter
+            participantRepo.getParticipantByCreds(getApplication(), email, pwd).observe(MainActivity.this, participant -> {
+                if(participant != null){
+                    if(participant.getEmail().equals(email) && participant.getPassword().equals(pwd)){
+                        Intent intent = new Intent(this, AnimationListActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+            });
+
         }
     }
         public void register() {

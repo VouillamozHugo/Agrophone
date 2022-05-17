@@ -33,7 +33,7 @@ public class Participant {
     public String lieuParticipant;
 
     @ColumnInfo(name="NPAParticipant")
-    public String npaParticipant;
+    public int npaParticipant;
 
     @ColumnInfo(name="RegionParticipant")
     public String regionParticipant;
@@ -42,8 +42,7 @@ public class Participant {
     public String pays;
 
 
-    public Participant(int idParticipant, String nomParticipant, String prenomParticipant, String email, String password, String noTelephone, String addresse, String lieuParticipant, String npaParticipant, String regionParticipant, String pays) {
-        this.idParticipant = idParticipant;
+    public Participant( String nomParticipant, String prenomParticipant, String email, String password, String noTelephone, String addresse, String lieuParticipant, int npaParticipant, String regionParticipant, String pays) {
         this.nomParticipant = nomParticipant;
         this.prenomParticipant = prenomParticipant;
         this.email = email;
@@ -121,11 +120,11 @@ public class Participant {
         this.lieuParticipant = lieuParticipant;
     }
 
-    public String getNpaParticipant() {
+    public int getNpaParticipant() {
         return npaParticipant;
     }
 
-    public void setNpaParticipant(String npaParticipant) {
+    public void setNpaParticipant(int npaParticipant) {
         this.npaParticipant = npaParticipant;
     }
 

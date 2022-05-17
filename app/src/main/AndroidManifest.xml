@@ -18,6 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".UI.AnimationListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.AnimationDescriptionActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

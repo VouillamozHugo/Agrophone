@@ -60,8 +60,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="260dp"
         android:hint="Prix :"
-        android:textColorHint="@color/black"
         android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -86,8 +86,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="180dp"
         android:hint="Lieu :"
-        android:textColorHint="@color/black"
         android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -105,7 +105,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/animation_disponibilite"
+        android:id="@+id/animation_disponibility"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -147,19 +147,5 @@
         android:backgroundTint="#B88A50"
         android:text="S'inscrire" />
 
-    <Spinner
-        android:id="@+id/status"
-        android:layout_width="150dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="170dp" />
-
-    <Spinner
-        android:id="@+id/type"
-        android:layout_width="150dp"
-        android:layout_height="48dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="170dp"
-        android:layout_marginEnd="40dp" />
 
 </RelativeLayout>
