@@ -1,6 +1,8 @@
 package com.example.agrophone.UI;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Insert;
 
 import com.example.agrophone.ArrayAdapter.AnimationAdapter;
 import com.example.agrophone.BaseAPP;
@@ -55,6 +58,7 @@ public class AnimationListActivity extends AppCompatActivity {
 
         animationRepo.getAllAnimations(getApplication()).observe(this, animations ->{
             AnimationAdapter animationAdapter = new AnimationAdapter(animations);
+            animationAdapter.setPage(this);
             RecyclerView recyclerView = findViewById(R.id.animation_list);
             recyclerView.setAdapter(animationAdapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -80,5 +84,14 @@ public class AnimationListActivity extends AppCompatActivity {
     private void show(){
         animationDate.setText("");
         //code juste pour recharger toute la recycler view
+    }
+
+    public void generateAnimationDetail(String idAnimation){
+        SharedPreferences.Editor editor = getSharedPreferences(MainActivity.PREF_ANIMATION,0).edit();
+
+        editor.putString(MainActivity.PREF_ANIMATION,idAnimation);
+        editor.apply();
+        Intent intent = new Intent(this, AnimationDescriptionActivity.class);
+        startActivity(intent);
     }
 }

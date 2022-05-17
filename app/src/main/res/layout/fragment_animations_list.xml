@@ -59,6 +59,7 @@
         android:padding="5dp" />
 
     <Button
+        android:id="@+id/selectAnimationFragment"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginTop="300dp"

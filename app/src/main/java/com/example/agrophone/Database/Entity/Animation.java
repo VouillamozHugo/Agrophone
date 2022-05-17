@@ -50,10 +50,13 @@ public class Animation {
     @ColumnInfo(name ="HeureFin")
     public String heureFin;
 
+    @ColumnInfo(name = "description")
+    public String description;
+
     public Animation(){}
 
     public Animation(int idEntreprise, String nomAnimation, String typeAnimation, int nombreMaxParticipants, int nombreMinParticipants,
-                     int nombreActuelParticipant, int npa, String ville, String region, double prix, String heureDebut, String heureFin) {
+                     int nombreActuelParticipant, int npa, String ville, String region, double prix, String heureDebut, String heureFin,String description) {
         this.IdEntreprise = idEntreprise;
         this.nomAnimation = nomAnimation;
         this.typeAnimation = typeAnimation;
@@ -66,6 +69,23 @@ public class Animation {
         this.prix = prix;
         this.heureDebut = heureDebut;
         this.heureFin = heureFin;
+        this.description = description;
+    }
+
+    public int getIdEntreprise() {
+        return IdEntreprise;
+    }
+
+    public void setIdEntreprise(int idEntreprise) {
+        IdEntreprise = idEntreprise;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getIDAnimation() {

@@ -22,7 +22,7 @@ public interface AnimationDAO {
     LiveData<List<Animation>> getAllAnimations();
 
     @Query("SELECT * FROM animation WHERE IDAnimation =:id")
-    LiveData<List<Animation>> getAllByIdAnimation(int id);
+    LiveData<Animation> getAllByIdAnimation(int id);
 
     @Delete
     void delete(Animation animation);

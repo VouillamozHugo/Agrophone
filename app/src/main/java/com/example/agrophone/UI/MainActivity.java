@@ -18,6 +18,9 @@ import com.example.agrophone.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String PREF_NAME = "SharedPrefs";
+    public static final String PREF_ANIMATION = "Animation";
+
     private EditText email_loginView;
     private EditText passwordView;
     private Button loginbtn;
@@ -99,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
         public void register() {
-            Intent intent = new Intent(this, AnimationListActivity.class);
+            Intent intent = new Intent(this, AnimationDescriptionActivity.class);
             startActivity(intent);
             finish();
         }
