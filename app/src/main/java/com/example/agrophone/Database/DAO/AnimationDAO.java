@@ -30,5 +30,5 @@ public interface AnimationDAO {
     void deleteAll();
 
     @Insert
-    void insert(Animation animation) throws SQLiteConstraintException;
+    void insert(Animation animation);
 }
