@@ -14,6 +14,12 @@ import com.example.agrophone.Database.async.entreprise.CreateEntreprise;
 
 import java.util.List;
 
+import android.app.Application;
+
+import com.example.agrophone.Database.Entity.AnimationByParticipant;
+import com.example.agrophone.Database.Util.OnAsyncEventListener;
+import com.example.agrophone.Database.async.animationByParticipant.CreateAnimationByParticipant;
+
 public class AnimationByParticipantRepo {
 
     private static  AnimationByParticipantRepo instance;

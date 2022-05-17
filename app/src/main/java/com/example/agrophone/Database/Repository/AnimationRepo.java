@@ -3,8 +3,17 @@ package com.example.agrophone.Database.Repository;
 
 import android.app.Application;
 
+import androidx.lifecycle.LiveData;
+import androidx.room.Query;
+
+import com.example.agrophone.BaseAPP;
 import com.example.agrophone.Database.Entity.Animation;
+import com.example.agrophone.Database.Entity.AnimationByParticipant;
 import com.example.agrophone.Database.Util.OnAsyncEventListener;
+import com.example.agrophone.Database.async.animation.CreateAnimation;
+import com.example.agrophone.Database.async.animationByParticipant.CreateAnimationByParticipant;
+
+import java.util.List;
 
 public class AnimationRepo {
 
@@ -24,19 +33,17 @@ public class AnimationRepo {
         return instance;
     }
 
-//    public void insert(final Animation client, OnAsyncEventListener callback,
-//                       Application application) {
-//        new CreateClient(application, callback).execute(client);
-//    }
-//
-//    public void update(final ClientEntity client, OnAsyncEventListener callback,
-//                       Application application) {
-//        new UpdateClient(application, callback).execute(client);
-//    }
-//
-//    public void delete(final ClientEntity client, OnAsyncEventListener callback,
-//                       Application application) {
-//        new DeleteClient(application, callback).execute(client);
-//    }
+    public void insert(final Animation animation, OnAsyncEventListener callback,
+                       Application application) {
+        new CreateAnimation(application, callback).execute(animation);
+    }
 
+
+    public LiveData<List<Animation>> getAllAnimations(Application application) {
+        return ((BaseAPP) application).getDatabase().animationDAO().getAllAnimations();
+    }
+
+    public LiveData<List<Animation>> getAllByIdAnimation(Application application,int id) {
+        return ((BaseAPP) application).getDatabase().animationDAO().getAllByIdAnimation(id);
+    }
 }
