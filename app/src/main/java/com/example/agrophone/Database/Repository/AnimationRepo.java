@@ -24,19 +24,19 @@ public class AnimationRepo {
         return instance;
     }
 
-    public void insert(final Animation client, OnAsyncEventListener callback,
-                       Application application) {
-        new CreateClient(application, callback).execute(client);
-    }
-
-    public void update(final ClientEntity client, OnAsyncEventListener callback,
-                       Application application) {
-        new UpdateClient(application, callback).execute(client);
-    }
-
-    public void delete(final ClientEntity client, OnAsyncEventListener callback,
-                       Application application) {
-        new DeleteClient(application, callback).execute(client);
-    }
+//    public void insert(final Animation client, OnAsyncEventListener callback,
+//                       Application application) {
+//        new CreateClient(application, callback).execute(client);
+//    }
+//
+//    public void update(final ClientEntity client, OnAsyncEventListener callback,
+//                       Application application) {
+//        new UpdateClient(application, callback).execute(client);
+//    }
+//
+//    public void delete(final ClientEntity client, OnAsyncEventListener callback,
+//                       Application application) {
+//        new DeleteClient(application, callback).execute(client);
+//    }
 
 }

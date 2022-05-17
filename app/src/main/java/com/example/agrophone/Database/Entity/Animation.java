@@ -8,13 +8,13 @@ import androidx.room.PrimaryKey;
 import java.util.Date;
 
 @Entity(tableName="animation",
-        foreignKeys = {@ForeignKey(entity = Entreprise.class, parentColumns = "IDEntreprise", childColumns = "IDEntreprise", onDelete = ForeignKey.CASCADE)})
+        foreignKeys = {@ForeignKey(entity = Entreprise.class, parentColumns = "IdEntreprise", childColumns = "IdEntreprise", onDelete = ForeignKey.CASCADE)})
 public class Animation {
 
     @PrimaryKey(autoGenerate = true)
-    public int IDAnimation;
+    public int idAnimation;
 
-    @ColumnInfo(name ="IDEntreprise")
+    @ColumnInfo(name ="IdEntreprise")
     public int IDEntreprise;
 
     @ColumnInfo(name ="Nom")
@@ -66,11 +66,11 @@ public class Animation {
     }
 
     public int getIDAnimation() {
-        return IDAnimation;
+        return idAnimation;
     }
 
     public void setIDAnimation(int IDAnimation) {
-        this.IDAnimation = IDAnimation;
+        this.idAnimation = IDAnimation;
     }
 
     public String getNomAnimation() {

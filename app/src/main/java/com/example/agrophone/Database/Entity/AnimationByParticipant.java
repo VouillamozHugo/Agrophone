@@ -7,15 +7,17 @@ import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "animationByParticipant",
-foreignKeys = {@ForeignKey(entity = Animation.class, parentColumns = "IDAnimation",childColumns = "IDAnimation", onDelete = ForeignKey.CASCADE),
-@ForeignKey(entity = Participant.class, parentColumns = "IDParticipant", childColumns = "IDParticipant", onDelete = ForeignKey.CASCADE)})
+foreignKeys = {@ForeignKey(entity = Animation.class, parentColumns = "idAnimation",childColumns = "idAnimation", onDelete = ForeignKey.CASCADE),
+@ForeignKey(entity = Participant.class, parentColumns = "idParticipant", childColumns = "idParticipant", onDelete = ForeignKey.CASCADE)})
 public class AnimationByParticipant {
 
+    @PrimaryKey(autoGenerate = true)
+    public int idAnimationByParticipant;
 
-    @PrimaryKey(autoGenerate = false)
+    @ColumnInfo(name = "idAnimation")
     public int idAnimation;
 
-    @PrimaryKey(autoGenerate = false)
+    @ColumnInfo(name = "idParticipant")
     public int idParticipant;
 
     public AnimationByParticipant(int idAnimation, int idParticipant) {
@@ -38,5 +40,13 @@ public class AnimationByParticipant {
 
     public void setIdParticipant(int idParticipant) {
         this.idParticipant = idParticipant;
+    }
+
+    public int getIdAnimationByParticipant() {
+        return idAnimationByParticipant;
+    }
+
+    public void setIdAnimationByParticipant(int idAnimationByParticipant) {
+        this.idAnimationByParticipant = idAnimationByParticipant;
     }
 }
