@@ -49,7 +49,7 @@ android:padding="16dp">
         android:backgroundTint="#b88a50"/>
 
     <TextView
-        android:id="@+id/homepage_date"
+        android:id="@+id/animations_date"
         android:layout_width="171dp"
         android:layout_height="39dp"
         android:layout_below="@id/icon"
@@ -66,7 +66,7 @@ android:padding="16dp">
         android:id="@+id/animation_list"
         android:layout_width="368dp"
         android:layout_height="715dp"
-        android:layout_below="@id/homepage_date"
+        android:layout_below="@id/animations_date"
         android:layout_marginTop="20dp"
         android:textSize="10dp" />
 
