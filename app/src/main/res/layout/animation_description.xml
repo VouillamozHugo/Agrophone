@@ -14,7 +14,7 @@
         android:layout_marginTop="50dp"
         android:text="Details"
         android:textAlignment="center"
-        android:textColor="#B88A50"
+        android:textColor="@color/black"
         android:textSize="30dp"
         android:textStyle="bold" />
 
@@ -24,9 +24,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="130dp"
-        android:text="Date 00/00/00"
+        android:hint="Date"
         android:textAlignment="center"
-        android:textColor="#B88A50"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -59,7 +60,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="260dp"
         android:hint="Prix :"
-        android:textColor="#B88A50"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -71,7 +73,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="220dp"
         android:hint="Heure :"
-        android:textColor="#B88A50"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -83,7 +86,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="180dp"
         android:hint="Lieu :"
-        android:textColor="#B88A50"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -95,7 +99,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="140dp"
         android:hint="Région :"
-        android:textColor="#B88A50"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -107,7 +112,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="100dp"
         android:hint="Place disponibles :"
-        android:textColor="#B88A50"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -122,6 +128,12 @@
         android:background="@drawable/geneve_vignes"
         android:contentDescription="animation_image"
         android:padding="5dp" />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/agrophone_logo" />
 
     <Button
         android:id="@+id/animation_inscription"
