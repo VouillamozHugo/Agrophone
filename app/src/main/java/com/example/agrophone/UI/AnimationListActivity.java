@@ -49,7 +49,6 @@ public class AnimationListActivity extends AppCompatActivity {
     }
     private void chooseDateTimeDialog(TextView etDate) {
         Calendar calendar=Calendar.getInstance();
-        DatePickerDialog datePickerDialog;
         DatePickerDialog.OnDateSetListener setListener=new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -65,6 +64,7 @@ public class AnimationListActivity extends AppCompatActivity {
         new DatePickerDialog(AnimationListActivity.this,setListener,calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
     private void show(){
+        animationDate.setText("");
         //code juste pour recharger toute la recycler view
     }
 }
