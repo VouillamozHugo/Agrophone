@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
         public void register() {
-            Intent intent = new Intent(this, AnimationDescriptionActivity.class);
+            Intent intent = new Intent(this, AnimationListActivity.class);
             startActivity(intent);
             finish();
         }

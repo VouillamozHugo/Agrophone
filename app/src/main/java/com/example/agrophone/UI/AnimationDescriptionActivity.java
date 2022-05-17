@@ -22,7 +22,7 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
     private TextView animationHeure;
     private TextView animationDisponibility;
     private Button animationInscription;
-
+    private TextView animationName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,7 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
         animationHeure = findViewById(R.id.animation_heure);
         animationLieu = findViewById(R.id.animation_lieu);
         animationDisponibility = findViewById(R.id.animation_disponibility);
+        animationName = findViewById(R.id.animation_name_description);
 
         animationInscription = findViewById(R.id.animation_inscription);
         animationInscription.setOnClickListener(view -> inscription());
