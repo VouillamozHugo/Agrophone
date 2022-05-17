@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        participantRepo = ((BaseAPP) getApplication()).getParticipantRepo();
         //values from view
         email_loginView = findViewById(R.id.email_login);
         passwordView = findViewById(R.id.password);
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         registerbtn = findViewById(R.id.registerbtn);
         registerbtn.setOnClickListener(view -> register());
 
-        participantRepo = ((BaseAPP) getApplication()).getParticipantRepo();
+
 
 
     }
