@@ -2,6 +2,7 @@ package com.example.agrophone.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.agrophone.BaseAPP;
+import com.example.agrophone.Database.DatabaseInitializer;
 import com.example.agrophone.Database.Repository.ParticipantRepo;
 import com.example.agrophone.R;
 
@@ -27,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        participantRepo = ((BaseAPP) getApplication()).getParticipantRepo();
+     //   DatabaseInitializer.populateDatabase(((BaseAPP) getApplicationContext()).getDatabase());
+
         //values from view
         email_loginView = findViewById(R.id.email_login);
         passwordView = findViewById(R.id.password);
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void attemptLogin() {
+        participantRepo = ((BaseAPP) getApplication()).getParticipantRepo();
         email_loginView.setError(null);
         passwordView.setError(null);
 
