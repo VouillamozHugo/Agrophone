@@ -17,7 +17,7 @@ public class Entreprise {
     public String lieuEntreprise;
 
     @ColumnInfo(name = "NPA")
-    public String npaEntreprise;
+    public int npaEntreprise;
 
     @ColumnInfo(name = "Region")
     public String regionEntreprise;
@@ -29,8 +29,7 @@ public class Entreprise {
     public Entreprise() {
 
     }
-    public Entreprise(int idEntrprise, String nomEntreprise, String lieuEntreprise, String npaEntreprise, String regionEntreprise, String gps) {
-        this.IdEntreprise = idEntrprise;
+    public Entreprise( String nomEntreprise, String lieuEntreprise, int npaEntreprise, String regionEntreprise, String gps) {
         this.nomEntreprise = nomEntreprise;
         this.lieuEntreprise = lieuEntreprise;
         this.npaEntreprise = npaEntreprise;
@@ -62,11 +61,11 @@ public class Entreprise {
         this.lieuEntreprise = lieuEntreprise;
     }
 
-    public String getNpaEntreprise() {
+    public int getNpaEntreprise() {
         return npaEntreprise;
     }
 
-    public void setNpaEntreprise(String npaEntreprise) {
+    public void setNpaEntreprise(int npaEntreprise) {
         this.npaEntreprise = npaEntreprise;
     }
 

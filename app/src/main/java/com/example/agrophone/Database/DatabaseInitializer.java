@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.agrophone.Database.Entity.Animation;
+import com.example.agrophone.Database.Entity.Entreprise;
 import com.example.agrophone.Database.Entity.Participant;
 
 public class DatabaseInitializer {
@@ -41,6 +42,12 @@ public class DatabaseInitializer {
         db.participantDAO().insert(participant);
     }
 
+    private static void addEntreprise(final AppDatabase db,  final String nom, final String lieu, final int npa,final String region, final String gps)
+    {
+        Entreprise entreprise = new Entreprise( nom, lieu, npa, region, gps);
+        db.entrepriseDAO().insert(entreprise);
+    }
+
     private static void addAnimation(final AppDatabase db, final int idEntreprise,final String nom, final String type, final int nbMax, final int nbMin,
                                      final int nbActuel, final int npa, final String ville, final String region, final double prix, final String heureDebut, final String heureFin )
     {
@@ -50,7 +57,11 @@ public class DatabaseInitializer {
     private static void populateWithTestData(AppDatabase db) {
 
         // Adding users
+        db.animationDAO().deleteAll();
         db.participantDAO().deleteAll();
+
+        db.entrepriseDAO().deleteAll();
+
         addParticipant(db, "vouillamoz", "hugo", "h@h.ch", "123", "07895855", "rue sieere", "Sierre", 1945, "Valais", "Suisse" );
         addParticipant(db, "Coimbra", "Daniel", "d@d.ch", "1234", "07895855", "rue sieere", "Sierre", 1945, "Valais", "Suisse" );
 //        db.userDao().deleteAll();
@@ -62,9 +73,18 @@ public class DatabaseInitializer {
             e.printStackTrace();
         }
 
-        // Adding animations
+        addEntreprise(db, "Cave", "Geneve", 3000 ,"Geneve", "1243121241");
+        addEntreprise(db, "Vin", "Geneve", 3000 ,"Geneve", "1243121241");
 
-        db.animationDAO().deleteAll();
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
+
         addAnimation(db, 1,"Viste Caves", "Visite", 10, 4, 5, 3961, "Sierre", "Valais", 10.00, "10h15", "18h00");
         addAnimation(db, 2,"Visite Alpage", "Visite", 10, 2, 1, 3961, "Sion", "Valais", 5.00, "10h15", "18h00");
 

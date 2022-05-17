@@ -11,6 +11,7 @@ import androidx.room.Query;
 
 import com.example.agrophone.Database.Entity.Animation;
 import com.example.agrophone.Database.Entity.AnimationByParticipant;
+import com.example.agrophone.Database.Entity.Participant;
 
 import java.util.List;
 
@@ -30,5 +31,5 @@ public interface AnimationDAO {
     void deleteAll();
 
     @Insert
-    void insert(Animation animation);
+    void insert(Animation animation) throws SQLiteConstraintException;
 }
