@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/custom_input"
@@ -43,7 +43,7 @@
         android:layout_width="115dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="180dp"
         android:text="Type"
         android:textColor="@color/black"
         android:textSize="20dp"
@@ -94,7 +94,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/animation_create_date"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
         android:text="Participants"
         android:textColor="@color/black"
@@ -152,7 +151,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/animation_create_price"
         android:layout_marginStart="220dp"
-        android:layout_marginTop="-30dp"
+        android:layout_marginTop="-10dp"
         android:text="Description"
         android:textColor="@color/black"
         android:textSize="20dp"
@@ -165,7 +164,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="11dp"
-        android:layout_marginTop="570dp"
+        android:layout_marginTop="550dp"
         android:layout_marginEnd="18dp"
         android:drawablePadding="10dp"
         android:inputType="textMultiLine"
@@ -176,7 +175,24 @@
         android:scrollHorizontally="true"
         android:text="description de l'animation fjdskfjdskfjfkjsdffjsdkfjdskf merci nathan "
         android:textColor="@color/black"
-        android:textSize="18dp"
+        android:textSize="20dp"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/cancel_creation"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="550dp"
+        android:layout_marginStart="20dp"
+        android:text="Cancel"/>
+
+    <Button
+        android:id="@+id/create_creation"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_below="@id/cancel_creation"
+        android:text="Create"/>
 
 </RelativeLayout>
