@@ -7,16 +7,16 @@ android:padding="16dp">
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:padding="5dp" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/agrophone_logo" />
+
 
     <TextView
         android:id="@+id/animation_title"
         android:layout_width="249dp"
         android:layout_height="48dp"
-        android:layout_marginStart="70dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="20dp"
         android:text="Liste des animations"
         android:textAlignment="center"
