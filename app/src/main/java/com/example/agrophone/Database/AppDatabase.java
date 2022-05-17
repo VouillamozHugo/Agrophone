@@ -22,7 +22,7 @@ import com.example.agrophone.Database.Entity.Participant;
 
 import java.util.concurrent.Executors;
 
-@Database(entities = {Animation.class, AnimationByParticipant.class, Entreprise.class, Participant.class}, version = 4, exportSchema = false)
+@Database(entities = {Animation.class, AnimationByParticipant.class, Entreprise.class, Participant.class}, version = 5, exportSchema = false)
 public abstract  class AppDatabase extends RoomDatabase {
 
     private static final String TAG = "AppDatabase";

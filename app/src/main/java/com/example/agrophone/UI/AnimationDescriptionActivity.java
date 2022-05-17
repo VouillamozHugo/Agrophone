@@ -1,12 +1,16 @@
 package com.example.agrophone.UI;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.agrophone.BaseAPP;
+import com.example.agrophone.Database.Entity.Animation;
+import com.example.agrophone.Database.Repository.AnimationRepo;
 import com.example.agrophone.R;
 
 public class AnimationDescriptionActivity extends AppCompatActivity {
@@ -24,10 +28,15 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
     private Button animationInscription;
     private TextView animationName;
 
+    private String animationID;
+
+    private AnimationRepo animationRepo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.animation_description);
+
+        animationRepo = ((BaseAPP) getApplication()).getanimationRepo() ;
 
         dateInput = findViewById(R.id.date_input);
         description = findViewById(R.id.description);
@@ -40,7 +49,15 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
         animationInscription = findViewById(R.id.animation_inscription);
         animationInscription.setOnClickListener(view -> inscription());
 
-        //détail d'une animation, mettre les valeurs dans les champs
+        SharedPreferences preferences = getSharedPreferences(MainActivity.PREF_ANIMATION,0);
+        animationID = preferences.getString(MainActivity.PREF_ANIMATION, "");
+        System.out.println(animationID + "\n########################################################################");
+        animationRepo.getAllByIdAnimation(getApplication(), Integer.valueOf(animationID) ).observe(this, animation -> {
+          //  animationPrice.setText(String.valueOf(animation.getPrix()));
+            description.setText(animation.getDescription());
+            animationHeure.setText(animation.heureDebut);
+            animationLieu.setText(animation.ville);
+        });
     }
 
     private void inscription(){

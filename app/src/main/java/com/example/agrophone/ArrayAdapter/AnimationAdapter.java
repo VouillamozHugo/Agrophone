@@ -1,10 +1,13 @@
 package com.example.agrophone.ArrayAdapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.ContentInfo;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agrophone.Database.Entity.Animation;
 import com.example.agrophone.R;
+import com.example.agrophone.UI.AnimationListActivity;
 
 import java.util.List;
 
@@ -21,15 +25,20 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.View
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView descriptionAnimation;
+        public TextView lieuAnimation;
+        public Button selectAnimation;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             descriptionAnimation = itemView.findViewById(R.id.description_animation);
-       }
+            lieuAnimation = itemView.findViewById(R.id.animation_lieu_fragment);
+            selectAnimation = itemView.findViewById(R.id.selectAnimationFragment);
+        }
     }
 
     private final List<Animation> animations;
+    private AnimationListActivity animationListActivity;
 
     public AnimationAdapter(List<Animation> animations) {
         this.animations = animations;
@@ -51,8 +60,16 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.View
     @Override
     public void onBindViewHolder(@NonNull AnimationAdapter.ViewHolder holder, int position) {
         Animation animation = animations.get(position);
+        holder.descriptionAnimation.setText(animation.getDescription());
+        holder.lieuAnimation.setText(animation.getVille());
+        holder.selectAnimation.setOnClickListener(new View.OnClickListener(){
 
-        holder.descriptionAnimation.setText("Super animation");
+            @Override
+            public void onClick(View view){
+                animationListActivity.generateAnimationDetail(String.valueOf(animation.getIDAnimation()));
+            }
+
+        });
 //        holder
 //        holder.row_view.setBackground(holder.allPictures.get(position));
 //        holder.ride_location.setText(ride.location);
@@ -67,4 +84,8 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.View
         return animations.size();
     }
 
+
+    public void setPage(AnimationListActivity animationListActivity){
+        this.animationListActivity = animationListActivity;
+    }
 }
