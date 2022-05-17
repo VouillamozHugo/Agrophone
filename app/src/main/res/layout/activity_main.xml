@@ -29,7 +29,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="40dp"
         android:src="@drawable/agrophone_logo" />
 
 
@@ -76,9 +76,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/password"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="140dp"
-        android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:backgroundTint="#50dddddd"
         android:text="Login"
@@ -92,10 +91,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/password"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="268dp"
+        android:layout_marginStart="250dp"
         android:layout_marginTop="140dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
         android:backgroundTint="#50dddddd"
         android:text="Register"
         android:textColor="#b88a50"

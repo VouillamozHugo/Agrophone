@@ -52,7 +52,7 @@
         android:src="@mipmap/ic_calendar" />
 
     <Button
-        android:id="@+id/show_all"
+        android:id="@+id/show_all_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -85,7 +85,7 @@
         android:layout_marginTop="200dp" />
 
     <Spinner
-        android:id="@+id/Région"
+        android:id="@+id/region"
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_alignParentEnd="true"
