@@ -3,6 +3,7 @@ package com.example.agrophone.Database;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.example.agrophone.Database.Entity.Animation;
 import com.example.agrophone.Database.Entity.Participant;
 
 public class DatabaseInitializer {
@@ -40,6 +41,12 @@ public class DatabaseInitializer {
         db.participantDAO().insert(participant);
     }
 
+    private static void addAnimation(final AppDatabase db, final int idEntreprise,final String nom, final String type, final int nbMax, final int nbMin,
+                                     final int nbActuel, final int npa, final String ville, final String region, final double prix, final String heureDebut, final String heureFin )
+    {
+        Animation animation = new Animation(idEntreprise,nom, type, nbMax, nbMin, nbActuel, npa, ville, region, prix, heureDebut, heureFin);
+        db.animationDAO().insert(animation);
+    }
     private static void populateWithTestData(AppDatabase db) {
 
         // Adding users
@@ -55,14 +62,22 @@ public class DatabaseInitializer {
             e.printStackTrace();
         }
 
-        // Adding rides
+        // Adding animations
+
+        db.animationDAO().deleteAll();
+        addAnimation(db, 1,"Viste Caves", "Visite", 10, 4, 5, 3961, "Sierre", "Valais", 10.00, "10h15", "18h00");
+        addAnimation(db, 2,"Visite Alpage", "Visite", 10, 2, 1, 3961, "Sion", "Valais", 5.00, "10h15", "18h00");
+
+
     try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        // Adding courses
+        // Adding entreprises
+
+
 
         try {
             Thread.sleep(1000);
