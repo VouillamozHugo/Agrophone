@@ -43,6 +43,7 @@ public class DatabaseInitializer {
     private static void populateWithTestData(AppDatabase db) {
 
         // Adding users
+        db.participantDAO().deleteAll();
         addParticipant(db, "vouillamoz", "hugo", "h@h.ch", "123", "07895855", "rue sieere", "Sierre", 1945, "Valais", "Suisse" );
         addParticipant(db, "Coimbra", "Daniel", "d@d.ch", "1234", "07895855", "rue sieere", "Sierre", 1945, "Valais", "Suisse" );
 //        db.userDao().deleteAll();

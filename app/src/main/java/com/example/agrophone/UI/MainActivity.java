@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-     //   DatabaseInitializer.populateDatabase(((BaseAPP) getApplicationContext()).getDatabase());
+        DatabaseInitializer.populateDatabase(((BaseAPP) getApplicationContext()).getDatabase());
 
         //values from view
         email_loginView = findViewById(R.id.email_login);
