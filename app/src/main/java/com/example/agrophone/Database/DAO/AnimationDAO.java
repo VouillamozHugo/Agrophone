@@ -5,9 +5,11 @@ import android.database.sqlite.SQLiteConstraintException;
 import androidx.lifecycle.LiveData;
 import androidx.room.Insert;
 import androidx.room.Dao;
+import androidx.room.Insert;
 import androidx.room.Query;
 
 import com.example.agrophone.Database.Entity.Animation;
+import com.example.agrophone.Database.Entity.AnimationByParticipant;
 
 import java.util.List;
 
