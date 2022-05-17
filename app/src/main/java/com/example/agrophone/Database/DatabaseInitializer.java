@@ -32,14 +32,6 @@ public class DatabaseInitializer {
         }
     }
 
-    //Add this code for every entity
-//    private static void addUser(final AppDatabase db, final String email, final String password, final String firstname,
-//                                final String lastname, final String phoneNumber) {
-//
-//        String encryptedPwd = Encrypt.md5(password);
-//        User user = new User(email, encryptedPwd, firstname, lastname, phoneNumber);
-//        db.userDao().insert(user);
-//    }
 
     private static void addParticipant(final AppDatabase db, final String nomParticipant, final String prenomParticipant, final String email,
                                 final String password, final String telephone,final String addressParticipant, final String lieuParticipant, final int npaParticipant, final String regionParticipant, final String payaParticipant) {
@@ -51,6 +43,7 @@ public class DatabaseInitializer {
     private static void populateWithTestData(AppDatabase db) {
 
         // Adding users
+        db.participantDAO().deleteAll();
         addParticipant(db, "vouillamoz", "hugo", "h@h.ch", "123", "07895855", "rue sieere", "Sierre", 1945, "Valais", "Suisse" );
         addParticipant(db, "Coimbra", "Daniel", "d@d.ch", "1234", "07895855", "rue sieere", "Sierre", 1945, "Valais", "Suisse" );
 //        db.userDao().deleteAll();
