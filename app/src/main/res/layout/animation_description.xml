@@ -1,6 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#d9d9d9">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/animation_detail"
+        android:layout_width="267dp"
+        android:layout_height="39dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="50dp"
+        android:text="Details"
+        android:textAlignment="center"
+        android:textColor="#B88A50"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/date_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="130dp"
+        android:text="Date 00/00/00"
+        android:textAlignment="center"
+        android:textColor="#B88A50"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="180dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="18dp"
+        android:drawablePadding="10dp"
+        android:inputType="textMultiLine"
+        android:lines="5"
+        android:maxLines="4"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:scrollHorizontally="true"
+        android:text="description de l'animation fjdskfjdskfjfkjsdffjsdkfjdskf merci nathan "
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/animation_price"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="260dp"
+        android:hint="Prix :"
+        android:textColor="#B88A50"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/animation_heure"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="220dp"
+        android:hint="Heure :"
+        android:textColor="#B88A50"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/animation_lieu"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="180dp"
+        android:hint="Lieu :"
+        android:textColor="#B88A50"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/animation_region"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="140dp"
+        android:hint="Région :"
+        android:textColor="#B88A50"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/animation_disponibilite"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="100dp"
+        android:hint="Place disponibles :"
+        android:textColor="#B88A50"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+
+    <ImageView
+        android:id="@+id/date_assignment"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="250dp"
+        android:background="@drawable/geneve_vignes"
+        android:contentDescription="animation_image"
+        android:padding="5dp" />
+
+    <Button
+        android:id="@+id/animation_inscription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="173dp"
+        android:backgroundTint="#B88A50"
+        android:text="S'inscrire" />
+
+    <Spinner
+        android:id="@+id/status"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="170dp" />
+
+    <Spinner
+        android:id="@+id/type"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="170dp"
+        android:layout_marginEnd="40dp" />
+
+</RelativeLayout>
