@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 public class Entreprise {
 
     @PrimaryKey(autoGenerate = true)
-    public int idEntrprise;
+    public int IdEntreprise;
 
     @ColumnInfo(name = "Nom")
     public String nomEntreprise;
@@ -25,8 +25,12 @@ public class Entreprise {
     @ColumnInfo(name = "GPS")
     public String gps;
 
+
+    public Entreprise() {
+
+    }
     public Entreprise(int idEntrprise, String nomEntreprise, String lieuEntreprise, String npaEntreprise, String regionEntreprise, String gps) {
-        this.idEntrprise = idEntrprise;
+        this.IdEntreprise = idEntrprise;
         this.nomEntreprise = nomEntreprise;
         this.lieuEntreprise = lieuEntreprise;
         this.npaEntreprise = npaEntreprise;
@@ -35,11 +39,11 @@ public class Entreprise {
     }
 
     public int getIdEntrprise() {
-        return idEntrprise;
+        return IdEntreprise;
     }
 
     public void setIdEntrprise(int idEntrprise) {
-        this.idEntrprise = idEntrprise;
+        this.IdEntreprise = idEntrprise;
     }
 
     public String getNomEntreprise() {
