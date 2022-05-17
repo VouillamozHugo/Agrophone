@@ -9,8 +9,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.agrophone.ArrayAdapter.AnimationAdapter;
+import com.example.agrophone.BaseAPP;
+import com.example.agrophone.Database.Repository.AnimationRepo;
 import com.example.agrophone.R;
 
 import java.text.SimpleDateFormat;
@@ -24,10 +28,14 @@ public class AnimationListActivity extends AppCompatActivity {
     private Button showAll;
     private TextView animationDate;
 
+    private AnimationRepo animationRepo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.animation_list);
+
+        animationRepo = ((BaseAPP) getApplication()).getanimationRepo();
 
         animationDate = findViewById(R.id.animations_date);
         recyclerView = findViewById(R.id.animation_list);
@@ -45,6 +53,12 @@ public class AnimationListActivity extends AppCompatActivity {
         //afficher si une date x a été choisie
 
 
+        animationRepo.getAllAnimations(getApplication()).observe(this, animations ->{
+            AnimationAdapter animationAdapter = new AnimationAdapter(animations);
+            RecyclerView recyclerView = findViewById(R.id.animation_list);
+            recyclerView.setAdapter(animationAdapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        });
 
     }
     private void chooseDateTimeDialog(TextView etDate) {

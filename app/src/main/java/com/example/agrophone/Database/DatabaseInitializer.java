@@ -46,14 +46,13 @@ public class DatabaseInitializer {
         db.participantDAO().deleteAll();
         addParticipant(db, "vouillamoz", "hugo", "h@h.ch", "123", "07895855", "rue sieere", "Sierre", 1945, "Valais", "Suisse" );
         addParticipant(db, "Coimbra", "Daniel", "d@d.ch", "1234", "07895855", "rue sieere", "Sierre", 1945, "Valais", "Suisse" );
-//        db.userDao().deleteAll();
-//        addUser(db, "hugo.v@hes.ch", "password123", "Hugo", "Vouillamoz", "075248621");
-//        addUser(db, "benjamin.m@hes.ch", "letmein123", "Benjamin", "Morel", "078689289");
-        try {
+      try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+      db.animationDAO().deleteAll();
 
         // Adding rides
     try {
