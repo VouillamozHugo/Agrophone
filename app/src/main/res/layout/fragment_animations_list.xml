@@ -52,7 +52,6 @@
         android:id="@+id/fragment_image"
         android:layout_width="200dp"
         android:layout_height="150dp"
-        android:layout_alignParentStart="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="250dp"
         android:background="@drawable/geneve_vignes"
@@ -60,7 +59,11 @@
         android:padding="5dp" />
 
     <Button
-        android:layout_width="200dp"
-        android:layout_height="50dp"></Button>
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginStart="250dp"
+        android:text="Details"
+        android:textColor="@color/black"></Button>
 
 </FrameLayout>
