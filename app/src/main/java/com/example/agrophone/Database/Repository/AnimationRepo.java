@@ -11,6 +11,7 @@ import com.example.agrophone.Database.Entity.Animation;
 import com.example.agrophone.Database.Entity.AnimationByParticipant;
 import com.example.agrophone.Database.Util.OnAsyncEventListener;
 import com.example.agrophone.Database.async.animation.CreateAnimation;
+import com.example.agrophone.Database.async.animation.DeleteAnimation;
 import com.example.agrophone.Database.async.animationByParticipant.CreateAnimationByParticipant;
 
 import java.util.List;
@@ -45,5 +46,10 @@ public class AnimationRepo {
 
     public LiveData<List<Animation>> getAllByIdAnimation(Application application,int id) {
         return ((BaseAPP) application).getDatabase().animationDAO().getAllByIdAnimation(id);
+    }
+
+    public void delete(final Animation animation, OnAsyncEventListener callback,
+                       Application application) {
+        new DeleteAnimation(application, callback).execute(animation);
     }
 }
