@@ -26,6 +26,8 @@
             android:name=".UI.AnimationDescriptionActivity"
             android:exported="false" />
 
+
+
     </application>
 
 </manifest>
