@@ -116,6 +116,21 @@
         android:textSize="20dp"
         android:textStyle="bold" />
 
+    <!--ProgressBar
+        android:id="@+id/animationProgressBar"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="100dp"
+        android:hint="Place disponibles :"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20dp"
+        android:progress="60"
+        android:indeterminateOnly="true"
+        android:textStyle="bold" /-->
+
     <TextView
         android:id="@+id/animation_disponibility"
         android:layout_width="200dp"
@@ -124,8 +139,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="100dp"
         android:hint="Place disponibles :"
-        android:textColorHint="@color/black"
         android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="20dp"
         android:textStyle="bold" />
 
