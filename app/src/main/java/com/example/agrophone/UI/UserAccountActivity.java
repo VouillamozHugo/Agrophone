@@ -19,7 +19,7 @@ public class UserAccountActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.reservation_list);
+        setContentView(R.layout.user_account);
 
         userName = findViewById(R.id.account_name);
         userForname = findViewById(R.id.account_forname);
