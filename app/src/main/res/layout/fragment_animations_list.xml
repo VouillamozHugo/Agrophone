@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="380dp"
+    android:layout_width="350dp"
     android:layout_height="280dp"
     tools:context=".animationsList"
-    android:background="@drawable/item_shape">
+    android:background="@drawable/item_shape"
+    android:layout_marginTop="20dp">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:id="@+id/description_animation"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="18dp"/>
 
     <TextView
         android:id="@+id/animation_name_fragment"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="55dp"
-        android:layout_marginStart="170dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="185dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:hint="[Nom de l'activité]"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="20dp"
+        android:textColor="#d9d9d9"
+        android:textColorHint="#d9d9d9"
+        android:textSize="18dp"
         android:textStyle="bold" />
 
     <TextView
@@ -41,8 +47,8 @@
         android:inputType="textPersonName"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
+        android:textColor="#d9d9d9"
+        android:textColorHint="#d9d9d9"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -60,8 +66,9 @@
         android:id="@+id/selectAnimationFragment"
         android:layout_width="100dp"
         android:layout_height="50dp"
+        android:layout_marginStart="200dp"
         android:layout_marginTop="200dp"
-        android:layout_marginStart="250dp"
+        android:backgroundTint="#d9d9d9"
         android:text="Details"
         android:textColor="@color/black"
         android:textStyle="bold"></Button>
