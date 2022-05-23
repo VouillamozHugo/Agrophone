@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.agrophone.Database.Entity.Animation;
+import com.example.agrophone.Database.Entity.AnimationByParticipant;
 import com.example.agrophone.Database.Entity.Entreprise;
 import com.example.agrophone.Database.Entity.Participant;
 
@@ -54,6 +55,11 @@ public class DatabaseInitializer {
         Animation animation = new Animation(idEntreprise,nom, type, nbMax, nbMin, nbActuel, npa, ville, region, prix, heureDebut, heureFin,description);
         db.animationDAO().insert(animation);
     }
+
+    private static void addAnimationByParticipant(final AppDatabase db, final int idAnimation, final int idParticipant){
+        AnimationByParticipant animationByParticipant = new AnimationByParticipant(idAnimation, idParticipant);
+        db.animationByParticipantDAO().insert(animationByParticipant);
+   }
     private static void populateWithTestData(AppDatabase db) {
 
         // Adding users
@@ -96,7 +102,11 @@ public class DatabaseInitializer {
         }
 
         // Adding entreprises
+        addAnimationByParticipant(db, 1,1);
+        addAnimationByParticipant(db, 1,2);
 
+        addAnimationByParticipant(db, 2,1);
+        addAnimationByParticipant(db, 2,2);
 
 
         try {
