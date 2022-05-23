@@ -25,7 +25,7 @@
 
 
     <TextView
-        android:id="@+id/show_all"
+        android:id="@+id/company_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -36,7 +36,7 @@
         android:textSize="18dp" />
 
     <TextView
-        android:id="@+id/animations_date"
+        android:id="@+id/company_site"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/icon"
@@ -50,7 +50,7 @@
         android:id="@+id/animation_list"
         android:layout_width="368dp"
         android:layout_height="715dp"
-        android:layout_below="@id/animations_date"
+        android:layout_below="@id/company_site"
         android:layout_marginTop="20dp"
         android:textSize="10dp" />
 
