@@ -27,4 +27,6 @@ public interface ParticipantDAO {
     @Query("SELECT * FROM PARTICIPANT WHERE Email=:email AND Password=:password")
     LiveData<Participant> getParticipantByCreds(String email, String password);
 
+    @Query("SELECT * FROM participant WHERE idParticipant=:id")
+    LiveData<Participant> getParticipant(int id);
 }
