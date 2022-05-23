@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#d9d9d9"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/agrophone_logo" />
+
+    <TextView
+        android:id="@+id/animation_title"
+        android:layout_width="249dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="20dp"
+        android:text="[Company name]"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="22dp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/company_number_admin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="150dp"
+        android:backgroundTint="#b88a50"
+        android:text="027/000/00/00"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/company_site_admin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/icon"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#b88a50"
+        android:text="www.company_name.com"
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/create_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="150dp"
+        android:backgroundTint="#B88A50"
+        android:text="Create"
+        android:textSize="13dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/animation_list_admin"
+        android:layout_width="368dp"
+        android:layout_height="715dp"
+        android:layout_below="@id/company_site_admin"
+        android:layout_marginTop="20dp"
+        android:textSize="10dp" />
+
+
+</RelativeLayout>
