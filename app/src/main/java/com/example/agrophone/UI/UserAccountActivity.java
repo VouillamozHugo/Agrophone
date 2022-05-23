@@ -43,8 +43,8 @@ public class UserAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_account);
 
-        SharedPreferences preferences = getSharedPreferences(MainActivity.PREF_ANIMATION,0);
-        userId = preferences.getString(MainActivity.PREF_ANIMATION, "");
+        SharedPreferences preferences = getSharedPreferences(MainActivity.PREF_USER,0);
+        userId = preferences.getString(MainActivity.PREF_USER, "");
 
         userName = findViewById(R.id.account_name);
         userForname = findViewById(R.id.account_forname);
@@ -56,9 +56,18 @@ public class UserAccountActivity extends AppCompatActivity {
         animationRepo = ((BaseAPP) getApplication()).getanimationRepo();
         participantRepo = ((BaseAPP) getApplication()).getParticipantRepo();
 
+        participantRepo.getParticipant(getApplication(),Integer.valueOf(userId) ).observe(this, user -> {
+            userName.setText(user.getNomParticipant());
+            userForname.setText(user.getPrenomParticipant());
+            userAddress.setText(user.getAddresse());
+            userNpa.setText(user.getNpaParticipant() + "");
+            userTel.setText(user.getNoTelephone());
+            userEmail.setText(user.getEmail());
+        });
+
         animationByParticipantRepo = ((BaseAPP) getApplication()).getAnimationByParticipantRepo();
 
-        animationByParticipantRepo.getAnimationByParticipant(getApplication(), 1).observe(this, animations -> {
+        animationByParticipantRepo.getAnimationByParticipant(getApplication(), Integer.valueOf(userId)).observe(this, animations -> {
 
             for (AnimationByParticipant anim : animations){
                 animationRepo.getAllByIdAnimation(getApplication(), anim.getIdAnimation()).observe(this, animation -> {

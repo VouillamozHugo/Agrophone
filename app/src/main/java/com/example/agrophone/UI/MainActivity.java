@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                     if(participant.getEmail().equals(email) && participant.getPassword().equals(pwd)){
                         SharedPreferences.Editor editor = getSharedPreferences(MainActivity.PREF_USER,0).edit();
 
-                        editor.putString(MainActivity.PREF_ANIMATION,String.valueOf(participant.getIdParticipant()));
+                        editor.putString(MainActivity.PREF_USER,String.valueOf(participant.getIdParticipant()));
                         editor.apply();
                         Intent intent = new Intent(this, AnimationListActivity.class);
                         startActivity(intent);

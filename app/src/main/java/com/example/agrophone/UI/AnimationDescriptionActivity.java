@@ -56,7 +56,6 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
         showCompanyInfo.setOnClickListener(view -> infoEntreprise());
         SharedPreferences preferences = getSharedPreferences(MainActivity.PREF_ANIMATION,0);
         animationID = preferences.getString(MainActivity.PREF_ANIMATION, "");
-        System.out.println(animationID + "\n########################################################################");
         animationRepo.getAllByIdAnimation(getApplication(), Integer.valueOf(animationID) ).observe(this, animation -> {
           //  animationPrice.setText(String.valueOf(animation.getPrix()));
             animationName.setText(animation.getNomAnimation());
@@ -88,7 +87,7 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
     }
     private void inscription(){
         //rajouter l'animation actuelle à la liste d'animations du client actuels
-
+        animationRepo.updateAnimation(getApplication(), Integer.valueOf(animationID) );
         startActivity(new Intent(this, AnimationListActivity.class));
         finish();
     }
