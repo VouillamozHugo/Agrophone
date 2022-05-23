@@ -52,7 +52,7 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
         animationLieu = findViewById(R.id.animation_lieu);
         animationDisponibility = findViewById(R.id.animation_disponibility);
         animationInscription = findViewById(R.id.animation_inscription);
-        //progressBar = findViewById(R.id.animationProgressBar);
+        progressBar = findViewById(R.id.animationProgressBar);
 
         animationInscription.setOnClickListener(view -> inscription());
 
@@ -69,12 +69,15 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
             animationLieu.setText("Lieu : " + animation.ville);
             animationPrice.setText(String.valueOf(animation.getPrix()) + " CHF");
             int placeDisponible = animation.getNombreMaxParticipants() - animation.getNombreActuelParticipant();
+            System.out.println("place "+animation.getNombreActuelParticipant());
             if(placeDisponible * 2 > animation.getNombreMaxParticipants()){
                 animationDisponibility.setTextColor(Color.RED);
-                //progressBar.setProgress(animation.getNombreMaxParticipants()/placeDisponible*100);
+                progressBar.setProgress(100-(int)((double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100));
             }else{
                 animationDisponibility.setTextColor(Color.GREEN);
-                //progressBar.setProgress(animation.getNombreMaxParticipants()/placeDisponible*100);
+                System.out.println("max" + animation.getNombreMaxParticipants());
+                System.out.println("hallo "+(double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100);
+                progressBar.setProgress(100-(int)((double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100));
             }
             animationDisponibility.setText("Nombre actuel de participant inscrit : " + String.valueOf(placeDisponible) + "/" + animation.getNombreMaxParticipants());
 
