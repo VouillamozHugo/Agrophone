@@ -4,6 +4,14 @@
     android:layout_height="match_parent"
     android:background="#d9d9d9">
 
+    <View
+        android:layout_width="370dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="180dp"
+        android:background="@drawable/item_shape" />
+
     <TextView
         android:id="@+id/animation_detail"
         android:layout_width="267dp"
@@ -30,18 +38,6 @@
         android:textSize="20dp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/animation_name_description"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/date_input"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:hint="Nom :"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/description"
@@ -50,7 +46,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="11dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="25dp"
         android:drawablePadding="10dp"
         android:inputType="textMultiLine"
@@ -70,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="260dp"
+        android:layout_marginBottom="300dp"
         android:hint="Prix :"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
@@ -83,10 +79,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="220dp"
+        android:layout_marginBottom="260dp"
         android:hint="Heure :"
-        android:textColorHint="@color/black"
         android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -96,7 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="180dp"
+        android:layout_marginBottom="220dp"
         android:hint="Lieu :"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
@@ -109,10 +105,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="180dp"
         android:hint="Région :"
-        android:textColorHint="@color/black"
         android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="20dp"
         android:textStyle="bold" />
 
@@ -122,21 +118,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="140dp"
         android:hint="Place disponibles :"
-        android:textColorHint="@color/black"
         android:textColor="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="20dp"
         android:textStyle="bold" />
-
 
     <ImageView
         android:id="@+id/date_assignment"
         android:layout_width="170dp"
         android:layout_height="120dp"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="195dp"
         android:background="@drawable/geneve_vignes"
         android:contentDescription="animation_image"
         android:padding="5dp" />
@@ -155,7 +150,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="170dp"
         android:backgroundTint="#B88A50"
         android:text="S'inscrire" />
 
@@ -167,7 +162,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="230dp"
+        android:layout_marginBottom="250dp"
         android:backgroundTint="#B88A50"
         android:text="Company" />
 
