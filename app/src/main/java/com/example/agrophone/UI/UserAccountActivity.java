@@ -1,5 +1,6 @@
 package com.example.agrophone.UI;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import com.example.agrophone.Database.Entity.Animation;
 import com.example.agrophone.Database.Entity.AnimationByParticipant;
 import com.example.agrophone.Database.Repository.AnimationByParticipantRepo;
 import com.example.agrophone.Database.Repository.AnimationRepo;
+import com.example.agrophone.Database.Repository.ParticipantRepo;
 import com.example.agrophone.R;
 
 import java.util.ArrayList;
@@ -27,6 +29,9 @@ public class UserAccountActivity extends AppCompatActivity {
     private TextView userNpa;
     private TextView userTel;
     private TextView userEmail;
+    private String userId;
+
+    private ParticipantRepo participantRepo;
 
     private AnimationRepo animationRepo;
     private AnimationByParticipantRepo animationByParticipantRepo;
@@ -38,6 +43,9 @@ public class UserAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_account);
 
+        SharedPreferences preferences = getSharedPreferences(MainActivity.PREF_ANIMATION,0);
+        userId = preferences.getString(MainActivity.PREF_ANIMATION, "");
+
         userName = findViewById(R.id.account_name);
         userForname = findViewById(R.id.account_forname);
         userAddress = findViewById(R.id.account_address);
@@ -46,6 +54,8 @@ public class UserAccountActivity extends AppCompatActivity {
         userEmail = findViewById(R.id.account_email);
 
         animationRepo = ((BaseAPP) getApplication()).getanimationRepo();
+        participantRepo = ((BaseAPP) getApplication()).getParticipantRepo();
+
         animationByParticipantRepo = ((BaseAPP) getApplication()).getAnimationByParticipantRepo();
 
         animationByParticipantRepo.getAnimationByParticipant(getApplication(), 1).observe(this, animations -> {

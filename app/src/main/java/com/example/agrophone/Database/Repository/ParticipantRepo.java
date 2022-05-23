@@ -38,4 +38,8 @@ public class ParticipantRepo {
         return ((BaseAPP) application).getDatabase().participantDAO().getParticipantByCreds(email,password  );
     }
 
+    public LiveData<Participant> getParticipant(Application application, int id){
+        return ((BaseAPP) application).getDatabase().participantDAO().getParticipant(id);
+    }
+
 }

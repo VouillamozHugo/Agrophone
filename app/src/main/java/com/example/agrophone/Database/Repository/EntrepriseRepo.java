@@ -2,6 +2,9 @@ package com.example.agrophone.Database.Repository;
 
 import android.app.Application;
 
+import androidx.lifecycle.LiveData;
+
+import com.example.agrophone.BaseAPP;
 import com.example.agrophone.Database.Entity.Animation;
 import com.example.agrophone.Database.Entity.Entreprise;
 import com.example.agrophone.Database.Util.OnAsyncEventListener;
@@ -25,6 +28,11 @@ public class EntrepriseRepo {
             }
         }
         return instance;
+    }
+
+
+    public LiveData<Entreprise> getEntrepriseByID(Application application, int id) {
+        return ((BaseAPP) application).getDatabase().entrepriseDAO().getEntrepriseByID(id);
     }
 
         public void insert(final Entreprise entreprise, OnAsyncEventListener callback,
