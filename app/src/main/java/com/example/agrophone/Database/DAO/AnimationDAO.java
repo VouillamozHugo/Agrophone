@@ -8,6 +8,7 @@ import androidx.room.Insert;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.agrophone.Database.Entity.Animation;
 import com.example.agrophone.Database.Entity.AnimationByParticipant;
@@ -32,6 +33,10 @@ public interface AnimationDAO {
 
     @Query("DELETE FROM animation")
     void deleteAll();
+
+    @Query("UPDATE animation SET NombreActuelParticipant = NombreActuelParticipant + 1 WHERE idAnimation=:id")
+    void update(int id );
+
 
     @Insert
     void insert(Animation animation) throws SQLiteConstraintException;

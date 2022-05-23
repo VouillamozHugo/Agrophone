@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,7 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
     private Button animationInscription;
     private Button showCompanyInfo;
     private Button infoCompany;
+    private ProgressBar progressBar;
 
 
     private String animationID;
@@ -50,13 +52,13 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
         animationLieu = findViewById(R.id.animation_lieu);
         animationDisponibility = findViewById(R.id.animation_disponibility);
         animationInscription = findViewById(R.id.animation_inscription);
+        progressBar = findViewById(R.id.animationProgressBar);
 
         animationInscription.setOnClickListener(view -> inscription());
 
         showCompanyInfo.setOnClickListener(view -> infoEntreprise());
         SharedPreferences preferences = getSharedPreferences(MainActivity.PREF_ANIMATION,0);
         animationID = preferences.getString(MainActivity.PREF_ANIMATION, "");
-        System.out.println(animationID + "\n########################################################################");
         animationRepo.getAllByIdAnimation(getApplication(), Integer.valueOf(animationID) ).observe(this, animation -> {
           //  animationPrice.setText(String.valueOf(animation.getPrix()));
             animationName.setText(animation.getNomAnimation());
@@ -67,10 +69,15 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
             animationLieu.setText("Lieu : " + animation.ville);
             animationPrice.setText(String.valueOf(animation.getPrix()) + " CHF");
             int placeDisponible = animation.getNombreMaxParticipants() - animation.getNombreActuelParticipant();
+            System.out.println("place "+animation.getNombreActuelParticipant());
             if(placeDisponible * 2 > animation.getNombreMaxParticipants()){
                 animationDisponibility.setTextColor(Color.RED);
+                progressBar.setProgress(100-(int)((double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100));
             }else{
                 animationDisponibility.setTextColor(Color.GREEN);
+                System.out.println("max" + animation.getNombreMaxParticipants());
+                System.out.println("hallo "+(double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100);
+                progressBar.setProgress(100-(int)((double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100));
             }
             animationDisponibility.setText("Nombre actuel de participant inscrit : " + String.valueOf(placeDisponible) + "/" + animation.getNombreMaxParticipants());
 
@@ -88,7 +95,7 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
     }
     private void inscription(){
         //rajouter l'animation actuelle à la liste d'animations du client actuels
-
+        animationRepo.updateAnimation(getApplication(), Integer.valueOf(animationID) );
         startActivity(new Intent(this, AnimationListActivity.class));
         finish();
     }

@@ -49,6 +49,9 @@ public class AnimationRepo {
         return ((BaseAPP) application).getDatabase().animationDAO().getAllByIdAnimation(id);
     }
 
+    public void updateAnimation(Application application, int id){
+        ((BaseAPP) application).getDatabase().animationDAO().update(id);
+    }
     public LiveData<List<Animation>> getAllAnimationsByDate(Application application, String date) {
         return ((BaseAPP) application).getDatabase().animationDAO().getAllAnimationsByDate(date);
     }
