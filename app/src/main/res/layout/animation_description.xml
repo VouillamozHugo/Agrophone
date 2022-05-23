@@ -51,7 +51,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="11dp"
         android:layout_marginTop="250dp"
-        android:layout_marginEnd="18dp"
+        android:layout_marginEnd="25dp"
         android:drawablePadding="10dp"
         android:inputType="textMultiLine"
         android:lines="5"
@@ -132,8 +132,8 @@
 
     <ImageView
         android:id="@+id/date_assignment"
-        android:layout_width="200dp"
-        android:layout_height="150dp"
+        android:layout_width="170dp"
+        android:layout_height="120dp"
         android:layout_alignParentStart="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="250dp"
@@ -149,15 +149,27 @@
 
     <Button
         android:id="@+id/animation_inscription"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="173dp"
+        android:layout_marginBottom="150dp"
         android:backgroundTint="#B88A50"
         android:text="S'inscrire" />
+
+    <Button
+        android:id="@+id/detail_company"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="230dp"
+        android:backgroundTint="#B88A50"
+        android:text="Company" />
 
 
 </RelativeLayout>
