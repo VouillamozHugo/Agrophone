@@ -34,6 +34,9 @@
         <activity
             android:name=".UI.CreateAnimationActivity"
             android:exported="false" />
+        <activity
+            android:name=".UI.CompanyInfoActivity"
+            android:exported="false" />
         <!--activity
             android:name=".UI.CompanyListActivity"
             android:exported="false" /-->
