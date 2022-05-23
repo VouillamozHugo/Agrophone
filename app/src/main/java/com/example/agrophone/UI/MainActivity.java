@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Application;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String PREF_NAME = "SharedPrefs";
     public static final String PREF_ANIMATION = "Animation";
+    public static final String PREF_ENTREPRISE = "Entreprise";
+    public static final String PREF_USER = "User";
 
     private EditText email_loginView;
     private EditText passwordView;
@@ -92,6 +95,10 @@ public class MainActivity extends AppCompatActivity {
             participantRepo.getParticipantByCreds(getApplication(), email, pwd).observe(MainActivity.this, participant -> {
                 if(participant != null){
                     if(participant.getEmail().equals(email) && participant.getPassword().equals(pwd)){
+                        SharedPreferences.Editor editor = getSharedPreferences(MainActivity.PREF_USER,0).edit();
+
+                        editor.putString(MainActivity.PREF_ANIMATION,String.valueOf(participant.getIdParticipant()));
+                        editor.apply();
                         Intent intent = new Intent(this, AnimationListActivity.class);
                         startActivity(intent);
                         finish();

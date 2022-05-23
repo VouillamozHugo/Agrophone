@@ -43,9 +43,9 @@ public class DatabaseInitializer {
         db.participantDAO().insert(participant);
     }
 
-    private static void addEntreprise(final AppDatabase db,  final String nom, final String lieu, final int npa,final String region, final String gps)
+    private static void addEntreprise(final AppDatabase db,  final String nom, final String lieu, final int npa,final String region, final String gps, final String url, final String tel)
     {
-        Entreprise entreprise = new Entreprise( nom, lieu, npa, region, gps);
+        Entreprise entreprise = new Entreprise( nom, lieu, npa, region, gps,url,tel);
         db.entrepriseDAO().insert(entreprise);
     }
 
@@ -79,8 +79,8 @@ public class DatabaseInitializer {
             e.printStackTrace();
         }
 
-        addEntreprise(db, "Cave", "Geneve", 3000 ,"Geneve", "1243121241");
-        addEntreprise(db, "Vin", "Geneve", 3000 ,"Geneve", "1243121241");
+        addEntreprise(db, "Cave", "Geneve", 3000 ,"Geneve", "1243121241", "https://maSuperCave.ch", "0242584526");
+        addEntreprise(db, "Vin", "Geneve", 3000 ,"Geneve", "1243121241", "https://acheteMonvin.ch", "0251475588");
 
 
         try {
@@ -91,7 +91,8 @@ public class DatabaseInitializer {
 
 
 
-        addAnimation(db, 1,"Viste Caves", "Visite", 10, 4, 5, 3961, "Sierre", "Valais", 10.00, "30.05.2022","10h15", "18h00","Super degustation de vin");
+        addAnimation(db, 1,"Viste Caves", "Visite", 10, 4, 5, 3961, "Sierre", "Valais", 10.00, "30.05.2022","10h15", "18h00","Visite des anciennes cave du vignobles saint carlos");
+        addAnimation(db, 1, "Dégustationn de vin", "Dégustation", 35, 10, 15, 3961, "Sierre", "Valais", 35.00, "15.06.2022", "10h00", "20h:00", "Dégustation de vin blanc au bord des vignes");
         addAnimation(db, 2,"Visite Alpage", "Visite", 10, 2, 1, 3961, "Sion", "Valais", 5.00, "31.05.2022","10h15", "18h00", "super visite de ma cave");
 
 

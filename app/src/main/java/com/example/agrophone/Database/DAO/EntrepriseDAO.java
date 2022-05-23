@@ -16,7 +16,6 @@ public interface EntrepriseDAO {
     @Query("SELECT * FROM entreprise WHERE IdEntreprise=:id")
     LiveData<Entreprise> getEntrepriseByID(int id);
 
-
     @Delete
     void delete(Entreprise entreprise);
 

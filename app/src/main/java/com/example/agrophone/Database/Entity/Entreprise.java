@@ -25,16 +25,48 @@ public class Entreprise {
     @ColumnInfo(name = "GPS")
     public String gps;
 
+    @ColumnInfo(name ="url")
+    public  String url;
+
+    @ColumnInfo(name ="tel")
+    public String tel;
+
 
     public Entreprise() {
 
     }
-    public Entreprise( String nomEntreprise, String lieuEntreprise, int npaEntreprise, String regionEntreprise, String gps) {
+    public Entreprise( String nomEntreprise, String lieuEntreprise, int npaEntreprise, String regionEntreprise, String gps,String url, String tel) {
         this.nomEntreprise = nomEntreprise;
         this.lieuEntreprise = lieuEntreprise;
         this.npaEntreprise = npaEntreprise;
         this.regionEntreprise = regionEntreprise;
         this.gps = gps;
+        this.url = url;
+        this.tel = tel;
+    }
+
+    public int getIdEntreprise() {
+        return IdEntreprise;
+    }
+
+    public void setIdEntreprise(int idEntreprise) {
+        IdEntreprise = idEntreprise;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 
     public int getIdEntrprise() {
