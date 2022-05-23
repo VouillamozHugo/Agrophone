@@ -25,6 +25,7 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.View
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView descriptionAnimation;
+        public TextView nameAnimation;
         public TextView lieuAnimation;
         public Button selectAnimation;
 
@@ -34,6 +35,7 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.View
             descriptionAnimation = itemView.findViewById(R.id.description_animation);
             lieuAnimation = itemView.findViewById(R.id.animation_lieu_fragment);
             selectAnimation = itemView.findViewById(R.id.selectAnimationFragment);
+            nameAnimation = itemView.findViewById(R.id.animation_name_fragment);
         }
     }
 
@@ -62,6 +64,7 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.View
         Animation animation = animations.get(position);
         holder.descriptionAnimation.setText(animation.getDescription());
         holder.lieuAnimation.setText(animation.getVille());
+        holder.nameAnimation.setText(animation.getNomAnimation());
         holder.selectAnimation.setOnClickListener(new View.OnClickListener(){
 
             @Override

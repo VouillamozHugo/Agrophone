@@ -30,6 +30,7 @@ public class AnimationListActivity extends AppCompatActivity {
     private ImageButton dateButton;
     private Button showAll;
     private TextView animationDate;
+    public Button infoUser;
 
     private AnimationRepo animationRepo;
 
@@ -39,7 +40,7 @@ public class AnimationListActivity extends AppCompatActivity {
         setContentView(R.layout.animation_list);
 
         animationRepo = ((BaseAPP) getApplication()).getanimationRepo();
-
+        infoUser = findViewById(R.id.showUserInfo);
         animationDate = findViewById(R.id.animations_date);
         recyclerView = findViewById(R.id.animation_list);
         //dateButton va permettre de choisir une date et afficher les anim pour la date x
@@ -55,7 +56,12 @@ public class AnimationListActivity extends AppCompatActivity {
         showAll.setOnClickListener(view -> show());
         //afficher si une date x a été choisie
 
-
+        infoUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                generateInfoUser();
+            }
+        });
         animationRepo.getAllAnimations(getApplication()).observe(this, animations ->{
             AnimationAdapter animationAdapter = new AnimationAdapter(animations);
             animationAdapter.setPage(this);
@@ -84,6 +90,12 @@ public class AnimationListActivity extends AppCompatActivity {
     private void show(){
         animationDate.setText("");
         //code juste pour recharger toute la recycler view
+    }
+
+    private void generateInfoUser(){
+        Intent intent = new Intent(this, UserAccountActivity.class);
+        startActivity(intent);
+
     }
 
     public void generateAnimationDetail(String idAnimation){

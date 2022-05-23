@@ -131,4 +131,13 @@
         android:textSize="20dp"
         android:textStyle="bold" />
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/user_animation_list"
+        android:layout_width="368dp"
+        android:layout_height="715dp"
+        android:layout_below="@id/account_email"
+        android:layout_marginTop="20dp"
+        android:textSize="10dp" />
+
 </RelativeLayout>

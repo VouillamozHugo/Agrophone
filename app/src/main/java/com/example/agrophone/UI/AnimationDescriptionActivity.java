@@ -2,7 +2,9 @@ package com.example.agrophone.UI;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -19,14 +21,19 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
     date_input textView, description textView, animation_price textView, animation_heure textView,
     animation_lieu textView, animation_disponibility textView, animation_inscription Button
      */
+
+    private TextView animationName;
+    private TextView animationPrice;
     private TextView dateInput;
     private TextView description;
-    private TextView animationPrice;
+
     private TextView animationLieu;
     private TextView animationHeure;
     private TextView animationDisponibility;
     private Button animationInscription;
-    private TextView animationName;
+
+    private Button infoCompany;
+
 
     private String animationID;
 
@@ -38,15 +45,19 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
 
         animationRepo = ((BaseAPP) getApplication()).getanimationRepo() ;
 
+        animationName = findViewById(R.id.animation_detail);
+
         dateInput = findViewById(R.id.date_input);
         description = findViewById(R.id.description);
         animationPrice = findViewById(R.id.animation_price);
         animationHeure = findViewById(R.id.animation_heure);
         animationLieu = findViewById(R.id.animation_lieu);
         animationDisponibility = findViewById(R.id.animation_disponibility);
-        animationName = findViewById(R.id.animation_name_description);
-
         animationInscription = findViewById(R.id.animation_inscription);
+
+    //    infoCompany.findViewById(R.id.detail_company);
+
+
         animationInscription.setOnClickListener(view -> inscription());
 
         SharedPreferences preferences = getSharedPreferences(MainActivity.PREF_ANIMATION,0);
@@ -54,9 +65,20 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
         System.out.println(animationID + "\n########################################################################");
         animationRepo.getAllByIdAnimation(getApplication(), Integer.valueOf(animationID) ).observe(this, animation -> {
           //  animationPrice.setText(String.valueOf(animation.getPrix()));
+            animationName.setText(animation.getNomAnimation());
+            dateInput.setText("Heure de début : " + animation.getHeureDebut());
             description.setText(animation.getDescription());
-            animationHeure.setText(animation.heureDebut);
-            animationLieu.setText(animation.ville);
+         //   animationHeure.setText(animation.heureDebut);
+            animationHeure.setText("");
+            animationLieu.setText("Lieu : " + animation.ville);
+            animationPrice.setText(String.valueOf(animation.getPrix()));
+            int placeDisponible = animation.getNombreMaxParticipants() - animation.getNombreActuelParticipant();
+            if(placeDisponible * 2 > animation.getNombreMaxParticipants()){
+                animationDisponibility.setTextColor(Color.RED);
+            }else{
+                animationDisponibility.setTextColor(Color.GREEN);
+            }
+            animationDisponibility.setText("Nombre actuel de participant inscrit : " + String.valueOf(placeDisponible) + "/" + animation.getNombreMaxParticipants());
         });
     }
 

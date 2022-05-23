@@ -16,6 +16,7 @@ public class UserAccountActivity extends AppCompatActivity {
     private TextView userTel;
     private TextView userEmail;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reservation_list);
