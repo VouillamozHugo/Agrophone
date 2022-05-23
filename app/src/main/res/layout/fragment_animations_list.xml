@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context=".animationsList">
+    android:layout_width="380dp"
+    android:layout_height="280dp"
+    tools:context=".animationsList"
+    android:background="@drawable/item_shape">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/description_animation"
-        android:layout_width="175dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="250dp"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 
     <TextView
         android:id="@+id/animation_name_fragment"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="170dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/custom_input"
-        android:hint="Nom"
-        android:inputType="textPersonName"
+        android:hint="[Nom de l'activité]"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:textColor="@color/black"
@@ -35,12 +32,11 @@
     <TextView
         android:id="@+id/animation_lieu_fragment"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="170dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="210dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/custom_input"
         android:hint="Lieu"
         android:inputType="textPersonName"
         android:paddingStart="12dp"
@@ -52,10 +48,10 @@
 
     <ImageView
         android:id="@+id/fragment_image"
-        android:layout_width="200dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="250dp"
+        android:layout_width="150dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/geneve_vignes"
         android:contentDescription="animation_image"
         android:padding="5dp" />
@@ -64,9 +60,10 @@
         android:id="@+id/selectAnimationFragment"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="200dp"
         android:layout_marginStart="250dp"
         android:text="Details"
-        android:textColor="@color/black"></Button>
+        android:textColor="@color/black"
+        android:textStyle="bold"></Button>
 
 </FrameLayout>

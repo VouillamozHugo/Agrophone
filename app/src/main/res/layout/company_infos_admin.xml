@@ -12,7 +12,7 @@
         android:src="@drawable/agrophone_logo" />
 
     <TextView
-        android:id="@+id/company_name"
+        android:id="@+id/company_name_admin"
         android:layout_width="249dp"
         android:layout_height="48dp"
         android:layout_marginStart="80dp"
@@ -25,7 +25,7 @@
 
 
     <TextView
-        android:id="@+id/company_number"
+        android:id="@+id/company_number_admin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -36,7 +36,7 @@
         android:textSize="18dp" />
 
     <TextView
-        android:id="@+id/company_site"
+        android:id="@+id/company_site_admin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/icon"
@@ -46,11 +46,22 @@
         android:text="www.company_name.com"
         android:textSize="18dp" />
 
+    <Button
+        android:id="@+id/create_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="150dp"
+        android:backgroundTint="#B88A50"
+        android:text="Create"
+        android:textSize="13dp" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/animation_company_list"
+        android:id="@+id/animation_list_admin"
         android:layout_width="368dp"
         android:layout_height="715dp"
-        android:layout_below="@id/company_site"
+        android:layout_below="@id/company_site_admin"
         android:layout_marginTop="20dp"
         android:textSize="10dp" />
 

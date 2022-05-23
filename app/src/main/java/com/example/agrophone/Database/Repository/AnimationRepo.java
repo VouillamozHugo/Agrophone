@@ -44,6 +44,7 @@ public class AnimationRepo {
         return ((BaseAPP) application).getDatabase().animationDAO().getAllAnimations();
     }
 
+
     public LiveData<Animation> getAllByIdAnimation(Application application,int id) {
         return ((BaseAPP) application).getDatabase().animationDAO().getAllByIdAnimation(id);
     }
