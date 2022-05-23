@@ -92,11 +92,15 @@ public class CreateAnimationActivity extends AppCompatActivity {
             focusView.requestFocus();
         } else {
             //code pour rentrer les données
-            //if (suceed) {cancel();}
+
+
+            //if (true) {cancel();} si l'ajout a marché
+            cancel();
+
         }
     }
     private void cancel(){
-        startActivity(new Intent(this, ReservationListActivity.class));
+        startActivity(new Intent(this, CompanyListActivity.class));
         finish();
     }
 

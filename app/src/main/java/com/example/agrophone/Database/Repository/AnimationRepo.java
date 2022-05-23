@@ -44,8 +44,13 @@ public class AnimationRepo {
         return ((BaseAPP) application).getDatabase().animationDAO().getAllAnimations();
     }
 
+
     public LiveData<Animation> getAllByIdAnimation(Application application,int id) {
         return ((BaseAPP) application).getDatabase().animationDAO().getAllByIdAnimation(id);
+    }
+
+    public LiveData<List<Animation>> getAllAnimationsByDate(Application application, String date) {
+        return ((BaseAPP) application).getDatabase().animationDAO().getAllAnimationsByDate(date);
     }
 
     public void delete(final Animation animation, OnAsyncEventListener callback,

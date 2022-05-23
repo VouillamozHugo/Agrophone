@@ -19,6 +19,7 @@ import android.app.Application;
 import com.example.agrophone.Database.Entity.AnimationByParticipant;
 import com.example.agrophone.Database.Util.OnAsyncEventListener;
 import com.example.agrophone.Database.async.animationByParticipant.CreateAnimationByParticipant;
+import com.example.agrophone.Database.async.entreprise.DeleteEntreprise;
 
 public class AnimationByParticipantRepo {
 
@@ -48,5 +49,6 @@ public class AnimationByParticipantRepo {
                        Application application) {
         new CreateAnimationByParticipant(application, callback).execute(animationByParticipant);
     }
+
 
 }

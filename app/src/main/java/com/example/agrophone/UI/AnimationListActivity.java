@@ -17,11 +17,14 @@ import androidx.room.Insert;
 
 import com.example.agrophone.ArrayAdapter.AnimationAdapter;
 import com.example.agrophone.BaseAPP;
+import com.example.agrophone.Database.Entity.Animation;
 import com.example.agrophone.Database.Repository.AnimationRepo;
 import com.example.agrophone.R;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class AnimationListActivity extends AppCompatActivity {
     // animation_list (recycler), date_button (imageButton, calendrier), show_all(Button)
@@ -31,6 +34,7 @@ public class AnimationListActivity extends AppCompatActivity {
     private Button showAll;
     private TextView animationDate;
     public Button infoUser;
+    private String date;
 
     private AnimationRepo animationRepo;
 
@@ -80,8 +84,9 @@ public class AnimationListActivity extends AppCompatActivity {
                 calendar.set(Calendar.MONTH,month);
                 calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth);
                 SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd.MM.yyyy");
-
-                etDate.setText(simpleDateFormat.format(calendar.getTime()));
+                date = simpleDateFormat.format(calendar.getTime());
+                etDate.setText(date);
+                showByDate(date);
 
             }
         };
@@ -90,6 +95,13 @@ public class AnimationListActivity extends AppCompatActivity {
     private void show(){
         animationDate.setText("");
         //code juste pour recharger toute la recycler view
+        animationRepo.getAllAnimations(getApplication()).observe(this, animations ->{
+            AnimationAdapter animationAdapter = new AnimationAdapter(animations);
+            animationAdapter.setPage(this);
+            RecyclerView recyclerView = findViewById(R.id.animation_list);
+            recyclerView.setAdapter(animationAdapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        });
     }
 
     private void generateInfoUser(){
@@ -105,5 +117,21 @@ public class AnimationListActivity extends AppCompatActivity {
         editor.apply();
         Intent intent = new Intent(this, AnimationDescriptionActivity.class);
         startActivity(intent);
+    }
+
+    private void showByDate(String date){
+        animationRepo.getAllAnimations(getApplication()).observe(this, animations ->{
+            List<Animation> animationByDate = new ArrayList<Animation>();
+            for (Animation a : animations){
+                if (a.getDate().equals(date)){
+                    animationByDate.add(a);
+                }
+            }
+            AnimationAdapter animationAdapter = new AnimationAdapter(animationByDate);
+            animationAdapter.setPage(this);
+            RecyclerView recyclerView = findViewById(R.id.animation_list);
+            recyclerView.setAdapter(animationAdapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        });
     }
 }

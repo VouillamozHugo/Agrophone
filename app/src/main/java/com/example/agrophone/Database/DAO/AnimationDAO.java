@@ -24,6 +24,9 @@ public interface AnimationDAO {
     @Query("SELECT * FROM animation WHERE IDAnimation =:id")
     LiveData<Animation> getAllByIdAnimation(int id);
 
+    @Query("SELECT * FROM animation WHERE Date =:date")
+    LiveData<List<Animation>> getAllAnimationsByDate(String date);
+
     @Delete
     void delete(Animation animation);
 

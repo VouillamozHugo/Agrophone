@@ -12,7 +12,7 @@
         android:src="@drawable/agrophone_logo" />
 
     <TextView
-        android:id="@+id/animation_title"
+        android:id="@+id/company_name"
         android:layout_width="249dp"
         android:layout_height="48dp"
         android:layout_marginStart="80dp"
@@ -47,7 +47,7 @@
         android:textSize="18dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/animation_list"
+        android:id="@+id/animation_company_list"
         android:layout_width="368dp"
         android:layout_height="715dp"
         android:layout_below="@id/company_site"

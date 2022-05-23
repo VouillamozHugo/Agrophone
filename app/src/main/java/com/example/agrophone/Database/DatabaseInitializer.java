@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.agrophone.Database.Entity.Animation;
+import com.example.agrophone.Database.Entity.AnimationByParticipant;
 import com.example.agrophone.Database.Entity.Entreprise;
 import com.example.agrophone.Database.Entity.Participant;
 
@@ -49,11 +50,16 @@ public class DatabaseInitializer {
     }
 
     private static void addAnimation(final AppDatabase db, final int idEntreprise,final String nom, final String type, final int nbMax, final int nbMin,
-                                     final int nbActuel, final int npa, final String ville, final String region, final double prix, final String heureDebut, final String heureFin,final String description )
+                                     final int nbActuel, final int npa, final String ville, final String region, final double prix, final String date,final String heureDebut, final String heureFin,final String description )
     {
-        Animation animation = new Animation(idEntreprise,nom, type, nbMax, nbMin, nbActuel, npa, ville, region, prix, heureDebut, heureFin,description);
+        Animation animation = new Animation(idEntreprise,nom, type, nbMax, nbMin, nbActuel, npa, ville, region, prix, date,heureDebut, heureFin,description);
         db.animationDAO().insert(animation);
     }
+
+    private static void addAnimationByParticipant(final AppDatabase db, final int idAnimation, final int idParticipant){
+        AnimationByParticipant animationByParticipant = new AnimationByParticipant(idAnimation, idParticipant);
+        db.animationByParticipantDAO().insert(animationByParticipant);
+   }
     private static void populateWithTestData(AppDatabase db) {
 
         // Adding users
@@ -85,8 +91,8 @@ public class DatabaseInitializer {
 
 
 
-        addAnimation(db, 1,"Viste Caves", "Visite", 10, 4, 5, 3961, "Sierre", "Valais", 10.00, "10h15", "18h00","Super degustation de vin");
-        addAnimation(db, 2,"Visite Alpage", "Visite", 10, 2, 1, 3961, "Sion", "Valais", 5.00, "10h15", "18h00", "super visite de ma cave");
+        addAnimation(db, 1,"Viste Caves", "Visite", 10, 4, 5, 3961, "Sierre", "Valais", 10.00, "30.05.2022","10h15", "18h00","Super degustation de vin");
+        addAnimation(db, 2,"Visite Alpage", "Visite", 10, 2, 1, 3961, "Sion", "Valais", 5.00, "31.05.2022","10h15", "18h00", "super visite de ma cave");
 
 
     try {
@@ -96,7 +102,11 @@ public class DatabaseInitializer {
         }
 
         // Adding entreprises
+        addAnimationByParticipant(db, 1,1);
+        addAnimationByParticipant(db, 1,2);
 
+        addAnimationByParticipant(db, 2,1);
+        addAnimationByParticipant(db, 2,2);
 
 
         try {
