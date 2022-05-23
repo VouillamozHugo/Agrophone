@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/etdnp/StudioProjects/Agrophone/app/src/main/res/drawable/card_view.xml" value="0.173" />
         <entry key="..\:/Users/etdnp/StudioProjects/Agrophone/app/src/main/res/drawable/custom_input.xml" value="0.173" />
+        <entry key="..\:/Users/etdnp/StudioProjects/Agrophone/app/src/main/res/drawable/ic_profile_icon.xml" value="0.173" />
         <entry key="..\:/Users/etdnp/StudioProjects/Agrophone/app/src/main/res/drawable/item_shape.xml" value="0.173" />
         <entry key="..\:/Users/etdnp/StudioProjects/Agrophone/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/etdnp/StudioProjects/Agrophone/app/src/main/res/layout/animation_description.xml" value="0.264" />
@@ -15,7 +16,7 @@
         <entry key="..\:/Users/etdnp/StudioProjects/Agrophone/app/src/main/res/layout/company_list.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/etdnp/StudioProjects/Agrophone/app/src/main/res/layout/create_animation.xml" value="0.136" />
         <entry key="..\:/Users/etdnp/StudioProjects/Agrophone/app/src/main/res/layout/fragment_animations_list.xml" value="0.25" />
-        <entry key="..\:/Users/etdnp/StudioProjects/Agrophone/app/src/main/res/layout/reservation_list.xml" value="0.136" />
+        <entry key="..\:/Users/etdnp/StudioProjects/Agrophone/app/src/main/res/layout/reservation_list.xml" value="0.264" />
         <entry key="..\:/Users/etdnp/StudioProjects/Agrophone/app/src/main/res/layout/user_account.xml" value="0.10989583333333333" />
         <entry key="..\:/WORKSPACES_4/AndroidStudio/Agrophone/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/WORKSPACES_4/AndroidStudio/Agrophone/app/src/main/res/layout/animation_list.xml" value="0.13120567375886524" />

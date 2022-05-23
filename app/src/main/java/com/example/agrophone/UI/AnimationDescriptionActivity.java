@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,7 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
     private Button animationInscription;
     private Button showCompanyInfo;
     private Button infoCompany;
+    private ProgressBar progressBar;
 
 
     private String animationID;
@@ -50,6 +52,7 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
         animationLieu = findViewById(R.id.animation_lieu);
         animationDisponibility = findViewById(R.id.animation_disponibility);
         animationInscription = findViewById(R.id.animation_inscription);
+        //progressBar = findViewById(R.id.animationProgressBar);
 
         animationInscription.setOnClickListener(view -> inscription());
 
@@ -68,8 +71,10 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
             int placeDisponible = animation.getNombreMaxParticipants() - animation.getNombreActuelParticipant();
             if(placeDisponible * 2 > animation.getNombreMaxParticipants()){
                 animationDisponibility.setTextColor(Color.RED);
+                //progressBar.setProgress(animation.getNombreMaxParticipants()/placeDisponible*100);
             }else{
                 animationDisponibility.setTextColor(Color.GREEN);
+                //progressBar.setProgress(animation.getNombreMaxParticipants()/placeDisponible*100);
             }
             animationDisponibility.setText("Nombre actuel de participant inscrit : " + String.valueOf(placeDisponible) + "/" + animation.getNombreMaxParticipants());
 
