@@ -95,6 +95,13 @@ public class AnimationListActivity extends AppCompatActivity {
     private void show(){
         animationDate.setText("");
         //code juste pour recharger toute la recycler view
+        animationRepo.getAllAnimations(getApplication()).observe(this, animations ->{
+            AnimationAdapter animationAdapter = new AnimationAdapter(animations);
+            animationAdapter.setPage(this);
+            RecyclerView recyclerView = findViewById(R.id.animation_list);
+            recyclerView.setAdapter(animationAdapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        });
     }
 
     private void generateInfoUser(){
