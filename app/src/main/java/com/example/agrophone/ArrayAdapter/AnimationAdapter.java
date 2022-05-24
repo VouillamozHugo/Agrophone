@@ -2,12 +2,14 @@ package com.example.agrophone.ArrayAdapter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.view.ContentInfo;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.agrophone.Database.Entity.Animation;
 import com.example.agrophone.R;
 import com.example.agrophone.UI.AnimationListActivity;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -28,6 +32,8 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.View
         public TextView nameAnimation;
         public TextView lieuAnimation;
         public Button selectAnimation;
+        public ProgressBar progressBar;
+        public TextView nombrePersonne;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -36,6 +42,8 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.View
             lieuAnimation = itemView.findViewById(R.id.animation_lieu_fragment);
             selectAnimation = itemView.findViewById(R.id.selectAnimationFragment);
             nameAnimation = itemView.findViewById(R.id.animation_name_fragment);
+            progressBar = itemView.findViewById(R.id.progressBarList);
+            nombrePersonne = itemView.findViewById(R.id.textNbPersonneList);
         }
     }
 
@@ -65,6 +73,7 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.View
         holder.descriptionAnimation.setText(animation.getDescription());
         holder.lieuAnimation.setText(animation.getVille());
         holder.nameAnimation.setText(animation.getNomAnimation());
+
         holder.selectAnimation.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -73,12 +82,15 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.View
             }
 
         });
-//        holder
-//        holder.row_view.setBackground(holder.allPictures.get(position));
-//        holder.ride_location.setText(ride.location);
-//        holder.textRide_Description.setText(ride.description);
-//        holder.ride_specification.setText("Difficulty :    " + ride.difficulty + "/5" + "     " + "Length :    " + ride.length + " km" + "\nDuration :    " + ride.duration + " h.");
-//        holder.buttonSelectCourse.setOnClickListener(new View.OnClickListener() {
+
+        int nbActuelParticipant = animation.getNombreActuelParticipant();
+        if(nbActuelParticipant * 2 > animation.getNombreMaxParticipants()){
+            holder.progressBar.setProgress((int)((double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100));
+        }else {
+            holder.progressBar.setProgress((int) ((double) animation.getNombreActuelParticipant() / animation.getNombreMaxParticipants() * 100));
+        }
+
+        holder.nombrePersonne.setText(animation.nombreActuelParticipant + " / " + animation.getNombreMaxParticipants());
 
     }
 
