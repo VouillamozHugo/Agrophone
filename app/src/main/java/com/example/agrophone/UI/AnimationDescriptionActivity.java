@@ -25,11 +25,11 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
 
     private TextView animationLieu;
     private TextView animationHeure;
-    private TextView animationDisponibility;
     private Button animationInscription;
     private Button showCompanyInfo;
     private Button infoCompany;
     private ProgressBar progressBar;
+    private TextView nombrePersonne;
 
 
     private String animationID;
@@ -50,9 +50,9 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
         animationPrice = findViewById(R.id.animation_price);
         animationHeure = findViewById(R.id.animation_heure);
         animationLieu = findViewById(R.id.animation_lieu);
-        animationDisponibility = findViewById(R.id.animation_disponibility);
         animationInscription = findViewById(R.id.animation_inscription);
         progressBar = findViewById(R.id.animationProgressBar);
+        nombrePersonne = findViewById(R.id.textNbPersonne);
 
         animationInscription.setOnClickListener(view -> inscription());
 
@@ -69,14 +69,13 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
             animationLieu.setText("Lieu : " + animation.ville);
             animationPrice.setText(String.valueOf(animation.getPrix()) + " CHF");
             int placeDisponible = animation.getNombreMaxParticipants() - animation.getNombreActuelParticipant();
+            int nbActuelParticipant = animation.getNombreActuelParticipant();
             if(placeDisponible * 2 > animation.getNombreMaxParticipants()){
-                animationDisponibility.setTextColor(Color.RED);
+                progressBar.setProgress((int)((double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100));
             }else{
-                animationDisponibility.setTextColor(Color.GREEN);
+                progressBar.setProgress((int)((double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100));
             }
-            progressBar.setProgress((int)((double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100));
-            animationDisponibility.setText("Nombre actuel de participant inscrit : " + String.valueOf(placeDisponible) + "/" + animation.getNombreMaxParticipants());
-
+            nombrePersonne.setText(animation.getNombreActuelParticipant() + " / " + animation.getNombreMaxParticipants());
             SharedPreferences.Editor editor = getSharedPreferences(MainActivity.PREF_ENTREPRISE,0).edit();
 
             editor.putString(MainActivity.PREF_ANIMATION,String.valueOf(animation.getIDEntreprise()));
