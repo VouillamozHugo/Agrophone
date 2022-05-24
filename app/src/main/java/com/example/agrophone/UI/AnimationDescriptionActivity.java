@@ -2,6 +2,7 @@ package com.example.agrophone.UI;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -73,10 +74,12 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
             animationPrice.setText(String.valueOf("Tarif : " + animation.getPrix()) + " CHF");
             int placeDisponible = animation.getNombreMaxParticipants() - animation.getNombreActuelParticipant();
             if(placeDisponible * 2 > animation.getNombreMaxParticipants()){
-                progressBar.setProgress((int)((double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100));
+                progressBar.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#90EE90")));
+
             }else{
-                progressBar.setProgress((int)((double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100));
+                progressBar.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#FF7276")));
             }
+            progressBar.setProgress((int)((double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100));
             nombrePersonne.setText(animation.getNombreActuelParticipant() + " / " + animation.getNombreMaxParticipants());
 
             if(animation.getNombreActuelParticipant() >= animation.getNombreMaxParticipants()){
