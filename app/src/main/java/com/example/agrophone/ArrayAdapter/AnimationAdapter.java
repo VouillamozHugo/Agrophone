@@ -2,6 +2,7 @@ package com.example.agrophone.ArrayAdapter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.view.ContentInfo;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.agrophone.Database.Entity.Animation;
 import com.example.agrophone.R;
 import com.example.agrophone.UI.AnimationListActivity;
+import com.example.agrophone.UI.CompanyInfoActivity;
 
 import org.w3c.dom.Text;
 
@@ -49,6 +51,7 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.View
 
     private final List<Animation> animations;
     private AnimationListActivity animationListActivity;
+    private CompanyInfoActivity companyInfoActivity;
 
     public AnimationAdapter(List<Animation> animations) {
         this.animations = animations;
@@ -78,17 +81,24 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.View
 
             @Override
             public void onClick(View view){
-                animationListActivity.generateAnimationDetail(String.valueOf(animation.getIDAnimation()));
+                if(animationListActivity != null) {
+                    animationListActivity.generateAnimationDetail(String.valueOf(animation.getIDAnimation()));
+                }else{
+                    companyInfoActivity.generateAnimationDetail(String.valueOf(animation.getIDAnimation()));
+                }
             }
 
         });
 
-        int nbActuelParticipant = animation.getNombreActuelParticipant();
-        if(nbActuelParticipant * 2 > animation.getNombreMaxParticipants()){
-            holder.progressBar.setProgress((int)((double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100));
-        }else {
-            holder.progressBar.setProgress((int) ((double) animation.getNombreActuelParticipant() / animation.getNombreMaxParticipants() * 100));
+
+        int placeDisponible = animation.getNombreMaxParticipants() - animation.getNombreActuelParticipant();
+        if(placeDisponible * 2 > animation.getNombreMaxParticipants()){
+            holder.progressBar.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#90EE90")));
+
+        }else{
+            holder.progressBar.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#FF7276")));
         }
+        holder.progressBar.setProgress((int)((double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100));
 
         holder.nombrePersonne.setText(animation.nombreActuelParticipant + " / " + animation.getNombreMaxParticipants());
 
@@ -102,5 +112,9 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.View
 
     public void setPage(AnimationListActivity animationListActivity){
         this.animationListActivity = animationListActivity;
+    }
+
+    public void setpage2(CompanyInfoActivity companyInfoActivity){
+        this.companyInfoActivity = companyInfoActivity;
     }
 }
