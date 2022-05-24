@@ -1,5 +1,6 @@
 package com.example.agrophone.UI;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -60,12 +61,22 @@ public class CompanyInfoActivity extends AppCompatActivity {
                     animationByCompany.add(a);
                 }
             }
-            AnimationAdapter animationAdapter = new AnimationAdapter(animationByCompany);
+            AnimationAdapter animationAdapter = new AnimationAdapter(animations);
+            animationAdapter.setpage2(this);
             recyclerView.setAdapter(animationAdapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
         });
 
 
         //remplir les champs
+    }
+
+    public void generateAnimationDetail(String idAnimation){
+        SharedPreferences.Editor editor = getSharedPreferences(MainActivity.PREF_ANIMATION,0).edit();
+
+        editor.putString(MainActivity.PREF_ANIMATION,idAnimation);
+        editor.apply();
+        Intent intent = new Intent(this, AnimationDescriptionActivity.class);
+        startActivity(intent);
     }
 }

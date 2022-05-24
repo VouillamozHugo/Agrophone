@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.agrophone.Database.Entity.Animation;
 import com.example.agrophone.R;
 import com.example.agrophone.UI.AnimationListActivity;
+import com.example.agrophone.UI.CompanyInfoActivity;
 
 import org.w3c.dom.Text;
 
@@ -50,6 +51,7 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.View
 
     private final List<Animation> animations;
     private AnimationListActivity animationListActivity;
+    private CompanyInfoActivity companyInfoActivity;
 
     public AnimationAdapter(List<Animation> animations) {
         this.animations = animations;
@@ -79,7 +81,11 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.View
 
             @Override
             public void onClick(View view){
-                animationListActivity.generateAnimationDetail(String.valueOf(animation.getIDAnimation()));
+                if(animationListActivity != null) {
+                    animationListActivity.generateAnimationDetail(String.valueOf(animation.getIDAnimation()));
+                }else{
+                    companyInfoActivity.generateAnimationDetail(String.valueOf(animation.getIDAnimation()));
+                }
             }
 
         });
@@ -106,5 +112,9 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.View
 
     public void setPage(AnimationListActivity animationListActivity){
         this.animationListActivity = animationListActivity;
+    }
+
+    public void setpage2(CompanyInfoActivity companyInfoActivity){
+        this.companyInfoActivity = companyInfoActivity;
     }
 }
