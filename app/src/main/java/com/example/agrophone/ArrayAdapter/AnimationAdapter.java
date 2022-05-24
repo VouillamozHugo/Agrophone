@@ -2,6 +2,7 @@ package com.example.agrophone.ArrayAdapter;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.view.ContentInfo;
 import android.view.LayoutInflater;
@@ -83,12 +84,15 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.View
 
         });
 
-        int nbActuelParticipant = animation.getNombreActuelParticipant();
-        if(nbActuelParticipant * 2 > animation.getNombreMaxParticipants()){
-            holder.progressBar.setProgress((int)((double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100));
-        }else {
-            holder.progressBar.setProgress((int) ((double) animation.getNombreActuelParticipant() / animation.getNombreMaxParticipants() * 100));
+
+        int placeDisponible = animation.getNombreMaxParticipants() - animation.getNombreActuelParticipant();
+        if(placeDisponible * 2 > animation.getNombreMaxParticipants()){
+            holder.progressBar.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#90EE90")));
+
+        }else{
+            holder.progressBar.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#FF7276")));
         }
+        holder.progressBar.setProgress((int)((double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100));
 
         holder.nombrePersonne.setText(animation.nombreActuelParticipant + " / " + animation.getNombreMaxParticipants());
 
