@@ -9,14 +9,17 @@ android:padding="16dp">
         android:id="@+id/icon"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/agrophone_logo" />
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:src="@drawable/escape" />
 
     <TextView
         android:id="@+id/animation_title"
         android:layout_width="249dp"
         android:layout_height="48dp"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:text="Liste des animations"
         android:textAlignment="center"
         android:textColor="@color/black"

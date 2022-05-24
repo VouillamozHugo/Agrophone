@@ -9,7 +9,7 @@
         android:id="@+id/icon"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/agrophone_logo" />
+        android:src="@drawable/escape" />
 
     <TextView
         android:id="@+id/info_company_name"
