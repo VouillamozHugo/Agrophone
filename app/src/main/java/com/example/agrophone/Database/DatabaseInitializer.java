@@ -68,7 +68,7 @@ public class DatabaseInitializer {
 
         db.entrepriseDAO().deleteAll();
 
-        addParticipant(db, "vouillamoz", "hugo", "h@h.ch", "123", "07895855", "rue sieere", "Sierre", 1945, "Valais", "Suisse" );
+        addParticipant(db, "vouillamoz", "hugo", "h.ch", "123", "07895855", "rue sieere", "Sierre", 1945, "Valais", "Suisse" );
         addParticipant(db, "Coimbra", "Daniel", "d@d.ch", "1234", "07895855", "rue sieere", "Sierre", 1945, "Valais", "Suisse" );
 //        db.userDao().deleteAll();
 //        addUser(db, "hugo.v@hes.ch", "password123", "Hugo", "Vouillamoz", "075248621");
@@ -91,7 +91,7 @@ public class DatabaseInitializer {
 
 
 
-        addAnimation(db, 1,"Viste Caves", "Visite", 10, 4, 5, 3961, "Sierre", "Valais", 10.00, "30.05.2022","10h15", "18h00","Visite des anciennes cave du vignobles saint carlos");
+        addAnimation(db, 1,"Viste Caves", "Visite", 10, 4, 10, 3961, "Sierre", "Valais", 10.00, "30.05.2022","10h15", "18h00","Visite des anciennes cave du vignobles saint carlos");
         addAnimation(db, 1, "Dégustationn de vin", "Dégustation", 35, 10, 15, 3961, "Sierre", "Valais", 35.00, "15.06.2022", "10h00", "20h:00", "Dégustation de vin blanc au bord des vignes");
         addAnimation(db, 2,"Visite Alpage", "Visite", 10, 2, 1, 3961, "Sion", "Valais", 5.00, "31.05.2022","10h15", "18h00", "super visite de ma cave");
 

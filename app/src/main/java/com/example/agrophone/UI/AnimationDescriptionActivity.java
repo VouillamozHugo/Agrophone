@@ -2,6 +2,7 @@ package com.example.agrophone.UI;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,7 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
     private Button showCompanyInfo;
     private Button infoCompany;
     private ProgressBar progressBar;
+    private TextView lieu;
     private TextView nombrePersonne;
 
 
@@ -45,6 +47,7 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
         animationName = findViewById(R.id.animation_detail);
 
         showCompanyInfo = findViewById(R.id.detail_company);
+        lieu = findViewById(R.id.animation_region);
         dateInput = findViewById(R.id.date_input);
         description = findViewById(R.id.description);
         animationPrice = findViewById(R.id.animation_price);
@@ -54,28 +57,36 @@ public class AnimationDescriptionActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.animationProgressBar);
         nombrePersonne = findViewById(R.id.textNbPersonne);
 
-        animationInscription.setOnClickListener(view -> inscription());
 
+        animationInscription.setOnClickListener(view -> inscription());
         showCompanyInfo.setOnClickListener(view -> infoEntreprise());
         SharedPreferences preferences = getSharedPreferences(MainActivity.PREF_ANIMATION,0);
         animationID = preferences.getString(MainActivity.PREF_ANIMATION, "");
         animationRepo.getAllByIdAnimation(getApplication(), Integer.valueOf(animationID) ).observe(this, animation -> {
           //  animationPrice.setText(String.valueOf(animation.getPrix()));
             animationName.setText(animation.getNomAnimation());
-            dateInput.setText("Heure de début : " + animation.getHeureDebut());
+            dateInput.setText("Date :" + animation.getDate());
             description.setText(animation.getDescription());
+            lieu.setText(animation.getRegion());
          //   animationHeure.setText(animation.heureDebut);
-            animationHeure.setText("");
+            animationHeure.setText(animation.getHeureDebut());
             animationLieu.setText("Lieu : " + animation.ville);
-            animationPrice.setText(String.valueOf(animation.getPrix()) + " CHF");
+            animationPrice.setText(String.valueOf("Tarif : " + animation.getPrix()) + " CHF");
             int placeDisponible = animation.getNombreMaxParticipants() - animation.getNombreActuelParticipant();
-            int nbActuelParticipant = animation.getNombreActuelParticipant();
             if(placeDisponible * 2 > animation.getNombreMaxParticipants()){
-                progressBar.setProgress((int)((double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100));
+                progressBar.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#90EE90")));
+
             }else{
-                progressBar.setProgress((int)((double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100));
+                progressBar.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#FF7276")));
             }
+            progressBar.setProgress((int)((double)animation.getNombreActuelParticipant()/animation.getNombreMaxParticipants()*100));
             nombrePersonne.setText(animation.getNombreActuelParticipant() + " / " + animation.getNombreMaxParticipants());
+
+            if(animation.getNombreActuelParticipant() >= animation.getNombreMaxParticipants()){
+                animationInscription.setEnabled(false);
+            }else{
+                animationInscription.setEnabled(true);
+            }
             SharedPreferences.Editor editor = getSharedPreferences(MainActivity.PREF_ENTREPRISE,0).edit();
 
             editor.putString(MainActivity.PREF_ANIMATION,String.valueOf(animation.getIDEntreprise()));
